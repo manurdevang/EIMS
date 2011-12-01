@@ -1,0 +1,2 @@
+module Institution::InstitutionGroupsHelper
+end

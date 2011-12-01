@@ -1,0 +1,8 @@
+<%= link_to_download event, :download_text => "<span>Download</span>".html_safe, :class => "css3-button css3-button-green css3-download-button small-button" %>
+
+<% unless params[:no_embed].to_s.downcase == "true" %>
+  <%= link_to "<span>Embed</span>".html_safe, generate_embed_event_path(event), :remote => true, :class => "css3-button css3-button-green small-button css3-embed-button" %>
+<% end %>
+
+<%= link_to "<span>Commentary</span>".html_safe, "#", :class=>"css3-button-released css3-button-green-released small-button css3-commentary-button", :id => "show-commentary" %>
+<%= link_to "<span>Commentary</span>".html_safe, "#", :class=>"css3-button-pressed css3-button-green-pressed small-button css3-commentary-button", :id => "hide-commentary", :style => "display: none;" %>

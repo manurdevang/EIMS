@@ -1,0 +1,16 @@
+<div>
+	<table>
+		<tr>
+			<td> <%= link_to "New_Menu_Link", new_menu_link_path, :remote => true, :id=>"new_menu_link" %> </td>
+		</tr>
+		<tr id="headings">
+				<td>Link Name</td><td>Module Name</td><td>Get</td><td>Delete</td>
+		</tr>
+		<% @menulinks.each do |ml| %>
+		<tr id="menu_links">
+			<td> <%= ml.name %> </td><td><%= ml.module_context.name%></td><td> <%= link_to "Edit", edit_menu_link_path(ml), :remote => true, :method => "GET" %> </td><td> <%= link_to "Delete", menu_link_path(ml), :remote => true, :method => "DELETE" %> </td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+

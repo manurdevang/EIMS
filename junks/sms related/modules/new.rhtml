@@ -1,0 +1,9 @@
+<div>
+	<% form_for :ModuleContext, :url=> modules_path, :html => { :method=> :post } do |mc| %>
+		<div>
+		<%= mc.text_field :name %>
+		<%= mc.hidden_field :status %>
+		</div>
+	<% end %>
+</div>
+

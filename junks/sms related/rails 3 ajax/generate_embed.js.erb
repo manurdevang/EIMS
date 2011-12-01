@@ -1,0 +1,10 @@
+jQuery('#embed').html("<%= escape_javascript(render(:partial => 'events/generate_embed', :locals => {:event => @event})) %>");
+$(".popup").hide();
+$('#embed').show();
+$('#embed').find('.code pre').jScrollPane({scrollbarWidth: 6});
+
+$("#embed .close").click(function()
+{
+  $(".popup").hide();
+  return false;
+});

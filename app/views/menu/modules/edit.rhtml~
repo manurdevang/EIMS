@@ -1,0 +1,9 @@
+
+<% form_for:modulecontext, :remote => true, :url => menu_module_path, :html => { :method => :put }  do |d|  %>
+<table>
+	<tr><td> <%= d.label :Name %></td><td><%= d.text_field :name %></td></tr>
+	<tr><td> <%= d.label :Link_Name %></td><td><%= d.text_field :link_name %></td></tr>
+	<tr><td><%= d.label :Status %></td><td> <%= d.select :status, [["Active","Active"],["Inactive","Inactive"],["Cancelled","Cancelled"]] %></tr>
+	<tr><td></td><td><%= d.submit :Submit %></td></tr>
+</table>
+<% end %>

@@ -1,0 +1,9 @@
+
+<% form_for:education_instution, :remote => true, :url => institution_institute_path, :html => { :method => :put }  do |d|  %>
+<table>
+	<tr><td> <%= d.label :Name %></td><td><%= d.text_field :name %></td></tr>
+	<tr><td><%= d.label :Institution_Group %></td><td> <%= d.select :education_institution_group_id, institution_group_for_selection %></td></tr>
+	<tr><td><%= d.label :Status %></td><td> <%= d.select :status, [["Active","Active"],["Inactive","Inactive"],["Cancelled","Cancelled"]] %></tr>
+	<tr><td></td><td><%= d.submit :Submit %></td></tr>
+</table>
+<% end %>

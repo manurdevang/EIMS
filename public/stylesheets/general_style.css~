@@ -1,0 +1,35 @@
+
+
+/*General Style */	
+	.full_width
+	{
+		width: 100%;
+		background: #fgfgfg;
+	}
+
+	.link_white{
+		font-family: Seriff;
+		font-size: 14px;
+		color:#ffffff;
+	}
+
+	.normal_black
+	{
+		color: #000000
+		font-family: Seriff;
+		font-size: 14px;
+	}
+	
+	.login{
+		border: 1px solid #eeeeee;
+	}
+	
+	.block{
+	display: block;
+	clear: both;
+	}
+	
+	.scroll{
+		overflow: auto;
+	}
+

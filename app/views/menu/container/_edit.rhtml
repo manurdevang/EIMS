@@ -1,0 +1,9 @@
+
+<% form_for:container, :url => menu_container_path, :html => { :method => :put }  do |d|  %>
+<table>
+	<tr><td> <%= d.label :Name %></td><td><%= d.text_field :name %></td></tr>
+	<tr><td><%= d.label :description %></td><td> <%= d.text_field :description %></td></tr>
+	<tr><td><%= d.label :position %></td><td> <%= d.text_field :position %></td></tr>
+	<tr><td></td><td><%= d.submit :Update %></td></tr>
+</table>
+<% end %>

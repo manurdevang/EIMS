@@ -1,0 +1,11 @@
+<div>
+<%= form_for :education_instution, :remote => true, :url => institution_institutes_path do |c| %>
+	<table>
+		<tr><td><%= c.label :Name %></td><td><%= c.text_field :name  %></td></tr>
+		<tr><td></td><td> <%= c.hidden_field :status, :value=> "Active"  %></td></tr>
+		<tr><td><%= c.label :Institution_Group %></td><td> <%= c.select :education_institution_group_id, institution_group_for_selection %></td></tr>
+		<tr><td></td><td> <%= c.submit :Submit  %></td></tr>
+	<table>
+<% end %>
+</div>
+

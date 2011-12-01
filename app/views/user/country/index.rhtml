@@ -1,0 +1,16 @@
+<table border=1>	
+	<tr>
+		<td colspan = "5" width=100%><%= link_to "New Country",new_user_country_path %> </td>
+	</tr>
+	<% i=0 %>
+	<% @countries.each do |con| %>
+	<% i+=1  %>
+		<tr>
+					<td><%= i %></td>  
+					<td><%= con.name %></td>
+					<td><%= con.status %></td>
+					<td><%= link_to "Edit", edit_user_country_path(con) %></td>
+					<td><%= link_to "Delete", user_country_path(con), :action => 'destroy', :method => "DELETE" %></td>
+		</tr>
+	<% end %>
+</table>

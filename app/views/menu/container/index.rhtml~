@@ -1,0 +1,18 @@
+<div>
+	<table>
+		<tr>
+			<td> <%= link_to "New_Container", new_menu_container_path, :remote => true, :id=>"new_container_link" %> </td>
+		</tr>
+		<tr id="headings">
+				<td></td><td></td><td></td><td></td>
+		</tr>
+		<% @containers.each do |c| %>
+		<tr id="container_links">
+			<td> <%= c.name %> </td><td></td><td> <%= link_to "Edit", edit_menu_container_path(c), :method => "GET" %> </td><td> <%= link_to "Delete", menu_container_path(c), :method => "DELETE" %> </td>
+		</tr>
+		<% end %>
+	</table>
+	<div id="load_page"></div>
+	<div id="load_notice"></div>
+</div>
+

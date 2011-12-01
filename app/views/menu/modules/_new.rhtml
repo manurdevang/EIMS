@@ -1,0 +1,11 @@
+<div>
+<%= form_for :modulecontext, :url => menu_modules_path do |c| %>
+	<table>
+		<tr><td><%= c.label :Name %></td><td><%= c.text_field :name  %></td></tr>
+		<tr><td><%= c.label :Link_Name %></td><td><%= c.text_field :link_name  %></td></tr>
+		<tr><td></td><td> <%= c.hidden_field :status, :value=> "Active"  %></td></tr>
+		<tr><td></td><td> <%= c.submit :Submit  %></td></tr>
+	<table>
+<% end %>
+</div>
+

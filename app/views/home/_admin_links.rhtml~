@@ -1,0 +1,13 @@
+<div id='admin_menu'>
+	<div class='block'><%= link_to "Roles" ,user_roles_path %> </div>
+	<div class='block'><%= link_to "Address" ,user_address_path %> </div>
+	<div class='block'><%= link_to "Country" ,user_country_index_path %> </div>
+	<div class='block'><%= link_to "Institution" ,institution_institutes_path %> </div>
+	<div class='block'><%= link_to "Institution Group" ,institution_institution_groups_path %> </div>
+	<div class='block'><%= link_to "Menu Module" ,menu_modules_path %> </div>
+	<div class='block'><%= link_to "Menu Links" ,menu_links_path %> </div>
+	<div class='block'><%= link_to "MEnu Groups" ,menu_groups_path %> </div>
+	<div class='block'><%= link_to "Menu Container" ,menu_container_index_path %> </div>
+	<div class='block'><%= link_to "Menu Group-Link Mapping" ,menu_container_index_path %> </div>
+</div>
+

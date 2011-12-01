@@ -1,0 +1,9 @@
+
+<% form_for:educationinstutiongroup, :remote => true, :url => institution_institution_group_path, :html => { :method => :put }  do |d|  %>
+<table>
+	<tr>
+		<td> <%= d.label :Name %></td><td><%= d.text_field :name %></td>
+		<td></td><td><%= d.submit :Submit %></td>
+	</tr>
+</table>
+<% end %>

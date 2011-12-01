@@ -1,0 +1,1 @@
+jQuery('#load_page').html("<%= escape_javascript(render(:partial => 'new', :locals => {:menu_link => @menulink })) %>");

@@ -1,0 +1,21 @@
+ActionGroup
+controller_action
+Role
+menu_contexts
+mwnu_list // controller,action,linktype:General_link, Container
+@action_group_lists
+menu_contexts_menu_list
+
+
+controller_action belongs to cont action_group 
+
+SELECT * FROM aCTION_GROUPS where module_name ilike 'fro%%' order by id desc
+select * from action_groups limit 100
+select * from menu_contexts limit 100
+select * from roles order by id
+select * from action_groups_menu_contexts order by action_group_id
+select * from controller_actions
+select * from menu_lists where controller ilike '/front%%' 
+select * from menu_lists where name ilike 'OP Package List%%'
+select * from menu_contexts_menu_lists limit 100
+--ac 69,70,71  11

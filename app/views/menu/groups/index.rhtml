@@ -1,0 +1,15 @@
+<div>
+	<table>
+		<tr>
+			<td> <%= link_to "New_Menu_Group", new_menu_group_path, :remote => true, :id=>"new_menu_group" %> </td>
+		</tr>
+		<tr id="headings">
+				<td>Group Name</td><td>Description</td><td>Get</td><td>Delete</td>
+		</tr>
+		<% @menugroups.each do |mg| %>
+		<tr id="menu_groups">
+			<td> <%= mg.name %> </td><td><%= mg.description %></td><td> <%= link_to "Edit", edit_menu_group_path(mg), :method => "GET", :remote => true %> </td><td> <%= link_to "Delete", menu_group_path(mg), :method => "DELETE" %> </td>
+		</tr>
+		<% end %>
+	</table>
+</div>

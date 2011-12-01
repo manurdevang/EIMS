@@ -1,0 +1,7 @@
+module Menu::MenuGroupsMenuLinksHelper
+	def menu_group_collection
+		@mg=MenuGroup.all
+		@mf=@mg.collect {|mg| [mg.name,mg.id] }
+	return @mf
+	end
+end

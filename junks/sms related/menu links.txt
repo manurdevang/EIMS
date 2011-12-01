@@ -1,0 +1,10 @@
+<div>
+	<div><%= link_to "Roles ", user_roles_path %></div>
+	<div><%= link_to "Country ", user_country_index_path %></div>
+	<div><%= link_to "Module", menu_modules_path %> </div>
+	<div> <%= link_to "Container", menu_container_index_path %> </div>
+	<div> <%= link_to "Menu_Links", menu_links_path %> </div>
+	<div> <%= link_to "Menu_Groups", menu_groups_path %> </div>
+	<div><%= link_to "Institution Group", institution_institution_groups_path %> </div>
+	<div> <%= link_to "Instutions", institution_institutes_path %> </div>
+</div>

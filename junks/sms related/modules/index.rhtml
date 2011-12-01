@@ -1,0 +1,10 @@
+<table>
+	<tr>
+		<td><%= link_to "Create New Module", new_module_path %></td>
+	</tr>
+<% @modules.each do |mod| %>
+	<tr>
+		<td><%= mod.id %></td>
+	</tr>
+<% end %>
+</table>

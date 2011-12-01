@@ -1,0 +1,14 @@
+<div>
+<%= form_for :menu_link, :url => menu_links_path do |c| %>
+	<table>
+		<tr><td><%= c.label :Name %></td><td><%= c.text_field :name  %></td></tr>
+		<tr><td><%= c.label :Description %></td><td><%= c.text_field :description  %></td></tr>
+		<tr><td><%= c.label :Path %></td><td><%= c.text_field :path  %></td></tr>
+		<tr><td><%= c.label :Method %></td><td><%= c.text_field :method  %></td></tr>
+		<tr><td></td><td> <%= c.hidden_field :status, :value=> "Active"  %></td></tr>
+		<tr><td><%= c.label :Module %></td><td> <%= c.select :module_context_id, module_context_for_select %></td></tr>
+		<tr><td></td><td> <%= c.submit :Submit  %></td></tr>
+	<table>
+<% end %>
+</div>
+

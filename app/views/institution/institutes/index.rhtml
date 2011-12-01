@@ -1,0 +1,14 @@
+<div>
+	<table>
+		<tr>
+		
+			<td> <%= link_to "New_Education_Institute", new_institution_institute_path, :remote => true, :id=>"new_education_institution" %> </td>
+		</tr>
+		<% @educationinstutions.each do |ei| %>
+		<tr id="institutions_">
+			<td> <%= ei.name %> </td><td> <%= link_to "Edit", edit_institution_institute_path(ei), :remote => true, :method => "GET" %> </td><td> <%= link_to "Delete", institution_institute_path(ei), :remote => true, :method => "DELETE" %> </td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+

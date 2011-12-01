@@ -1,0 +1,2 @@
+module Bills::HomeHelper
+end

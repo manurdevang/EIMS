@@ -1,0 +1,18 @@
+
+	<div>
+	<%= link_to "New Role", new_user_role_path %>
+	</div>
+
+<table>
+		<tr>
+			<td>Role Name</td><td></td><td></td>
+		</tr>
+	<% @roles.each do |r| %>
+		<tr width= "100%">
+			<td><%= r.name %></td><td><%= link_to "Edit", edit_user_role_path(r), :method => "GET" %></td><td><%= link_to "Delete", user_role_path(r), :method => "DELETE" %></td>
+		</tr>
+		<% end %>
+	</table>	
+
+
+

@@ -1,0 +1,5 @@
+Transaction Block
+http://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html
+
+devise
+http://www.communityguides.eu/articles/10

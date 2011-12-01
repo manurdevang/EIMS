@@ -1,0 +1,2 @@
+module Menu::ModulesHelper
+end
