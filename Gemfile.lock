@@ -86,6 +86,6 @@ PLATFORMS
 
 DEPENDENCIES
   devise
-  jquery-rails (>= 0.2.6)
+  jquery-rails (>= 1.0.12)
   mysql2 (< 0.3)
   rails (= 3.0.9)

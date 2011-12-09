@@ -1,0 +1,6 @@
+<% form_for:role, :remote => true, :url => user_role_path, :html => { :method => :put }  do |d|  %>
+<table width="100%">
+	<tr><td> <%= d.label :Role_Name %></td><td><%= d.text_field :name %></td></tr>
+	<tr><td></td><td><%= d.submit :Submit %></td></tr>
+</table>
+<% end %>

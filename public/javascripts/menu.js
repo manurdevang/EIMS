@@ -1,41 +1,61 @@
+			$(function(){
 
-ddaccordion.init({
-	headerclass: "expandable", //Shared CSS class name of headers group that are expandable
-	contentclass: "categoryitems", //Shared CSS class name of contents group
-	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click" or "mouseover
-	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
-	defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
-	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
-	animatedefault: false, //Should contents open by default be animated into view?
-	persiststate: true, //persist state of opened contents within browser session?
-	toggleclass: ["", "openheader"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
-	togglehtml: ["prefix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
-	animatespeed: "normal", //speed of animation: "fast", "normal", or "slow"
-	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
-		//do nothing
-	},
-	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
-		//do nothing
-	}
-})
+				// Accordion
+				$("#accordion").accordion({ header: "h3" });
+	
+				jQuery(document).ready(function(){
+					$('.accordion .head').click(function() {
+						$(this).next().toggle();
+						return false;
+					}).next().hide();
+				});
+	
+	
+				// Tabs
+				$('#tabs').tabs();
+	
 
-ddaccordion.init({ //2nd level headers initialization
-	headerclass: "subexpandable", //Shared CSS class name of sub headers group that are expandable
-	contentclass: "subcategoryitems", //Shared CSS class name of sub contents group
-	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click" or "mouseover"
-	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
-	defaultexpanded: [], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
-	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
-	animatedefault: false, //Should contents open by default be animated into view?
-	persiststate: true, //persist state of opened contents within browser session?
-	toggleclass: ["opensubheader", "closedsubheader"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
-	togglehtml: ["none", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
-	animatespeed: "normal", //speed of animation: "fast", "normal", or "slow"
-	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
-		//do nothing
-	},
-	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
-		//do nothing
-	}
-})
+				// Dialog			
+				$('#dialog').dialog({
+					autoOpen: false,
+					width: 600,
+					buttons: {
+						"Ok": function() { 
+							$(this).dialog("close"); 
+						}, 
+						"Cancel": function() { 
+							$(this).dialog("close"); 
+						} 
+					}
+				});
+				
+				// Dialog Link
+				$('#dialog_link').click(function(){
+					$('#dialog').dialog('open');
+					return false;
+				});
 
+				// Datepicker
+				$('#datepicker').datepicker({
+					inline: true
+				});
+				
+				// Slider
+				$('#slider').slider({
+					range: true,
+					values: [17, 67]
+				});
+				
+				// Progressbar
+				$("#progressbar").progressbar({
+					value: 20 
+				});
+				
+				//hover states on the static widgets
+				$('#dialog_link, ul#icons li').hover(
+					function() { $(this).addClass('ui-state-hover'); }, 
+					function() { $(this).removeClass('ui-state-hover'); }
+				);
+				
+			});
+	

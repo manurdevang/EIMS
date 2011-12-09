@@ -18,7 +18,7 @@
 		<% else
 		end %>
 			<div id='center_container'>
-				<div id="load_notice"></div>
+				<div class="load_notice"><%= flash[:notice] %></div>
 				<div id="load_page"></div>
 				<%= yield %>
 			</div>

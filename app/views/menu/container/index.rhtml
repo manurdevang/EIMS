@@ -1,16 +1,32 @@
-<div>
-	<table>
-		<tr>
-			<td> <%= link_to "New_Container", new_menu_container_path, :remote => true, :id=>"new_container_link" %> </td>
+	<table class = 'table_border' width="100%">
+		<tr class='table_heading'>
+			<th>Sl No</th><th>Menu Container</th><th>Description</th><th>Container Position</th><th><%= link_to "New Container", "#", :id => 'new_container_link',:class => 'blue'  %></th>
 		</tr>
-		<tr id="headings">
-				<td></td><td></td><td></td><td></td>
+		<% c=1 %>
+	<% @containers.each do |r| %>
+	<%
+		b = 'odd' 
+		b = 'even' if c % 2 == 0
+	%>
+		<tr width= "100%" class = '<%= b %>'>
+			<td class='normal_black'><%= c.to_s %></td>
+			<td class='normal_black'><%= r.name %></td>
+			<td class='normal_black'><%= r.description %></td>
+			<td class='normal_black'><%= r.container_position %></td>			
+			<td><%= link_to "Edit", edit_user_role_path(r), :method => "GET",:id =>r.id ,:class => 'blue', :onClick => "call_edit(#{r.id});" %></td>
+			<% link_to "Delete", user_role_path(r), :method => "DELETE",:id =>r.id ,:class => 'blue' %>
 		</tr>
-		<% @containers.each do |c| %>
-		<tr id="container_links">
-			<td> <%= c.name %> </td><td></td><td> <%= link_to "Edit", edit_menu_container_path(c), :method => "GET" %> </td><td> <%= link_to "Delete", menu_container_path(c), :method => "DELETE" %> </td>
-		</tr>
+		<% c +=1 %>
 		<% end %>
 	</table>
-</div>
-
+	
+	<script>
+		$("#new_container_link").click(function (){
+			$("#center_container").load('/menu/container/new', function() {
+			});
+		});
+		
+		function call_edit(i){
+			$("#center_container").load('/menu/container/'+parseInt(i)+'/edit',function() {});
+		}
+	</script>

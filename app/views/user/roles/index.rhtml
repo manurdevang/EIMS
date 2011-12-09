@@ -1,18 +1,30 @@
-
-	<div>
-	<%= link_to "New Role", new_user_role_path %>
-	</div>
-
-<table>
-		<tr>
-			<td>Role Name</td><td></td><td></td>
+	<table class = 'table_border' width="100%">
+		<tr class='table_heading'>
+			<th>Sl No</th><th><div >Role Name</div></th><th colspan='2'><%= link_to "New Role", "#", :id => 'create_new_role',:class => 'blue'  %></th>
 		</tr>
+		<% c=1 %>
 	<% @roles.each do |r| %>
-		<tr width= "100%">
-			<td><%= r.name %></td><td><%= link_to "Edit", edit_user_role_path(r), :method => "GET" %></td><td><%= link_to "Delete", user_role_path(r), :method => "DELETE" %></td>
+	<%
+		b = 'odd' 
+		b = 'even' if c % 2 == 0
+	%>
+		<tr width= "100%" class = '<%= b %>'>
+			<td class='normal_black'><%= c.to_s %></td>
+			<td class='normal_black'><%= r.name %></td>
+			<td><%= link_to "Edit", edit_user_role_path(r), :method => "GET",:id =>r.id ,:class => 'blue', :onClick => "call_edit(#{r.id});" %></td>
+			<% link_to "Delete", user_role_path(r), :method => "DELETE",:id =>r.id ,:class => 'blue' %>
 		</tr>
+		<% c +=1 %>
 		<% end %>
-	</table>	
-
-
-
+	</table>
+	
+	<script>
+		$("#create_new_role").click(function (){
+			$("#center_container").load('/user/roles/new', function() {
+			});
+		});
+		
+		function call_edit(i){
+			$("#center_container").load('/user/roles/'+parseInt(i)+'/edit',function() {});
+		}
+	</script>

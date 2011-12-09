@@ -2,7 +2,7 @@ class CreateMenuGroups < ActiveRecord::Migration
   def self.up
     create_table :menu_groups do |t|
 			t.string  :name
-			t.integer :description
+			t.string :description
 			t.integer :role_id
 			t.integer :location_id
       t.timestamps

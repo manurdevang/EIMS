@@ -1,9 +1,0 @@
-puts "************************************************"
-puts params.inspect
-
-<% form_for:mgml, :remote => true, :url => menu_menu_groups_menu_link_path, :html => { :method => :put }  do |d|  %>
-<table>
-	<tr><td> <%= d.label :Menu_Group_Name %></td><td><%= d.text_field :name %></td></tr>
-	<tr><td></td><td><%= d.submit :Submit %></td></tr>
-</table>
-<% end %>

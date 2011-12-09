@@ -1,15 +1,31 @@
-<div>
-	<table>
-		<tr>
-			<td> <%= link_to "New_Menu_Group", new_menu_group_path, :remote => true, :id=>"new_menu_group" %> </td>
+<table class = 'table_border' width="100%">
+		<tr class='table_heading'>
+			<th>Sl No</th><th><div >Menu Group Name</div></th><th><div >Description </div></th><th colspan='2'> <%= link_to "New Menu Group", "#", :id => 'new_menu_group',:class => 'blue'  %>
+			</th>
 		</tr>
-		<tr id="headings">
-				<td>Group Name</td><td>Description</td><td>Get</td><td>Delete</td>
+	<% c=1 %>
+	<% @menugroups.each do |r| %>
+	<% 
+		b = 'odd' 
+		b = 'even' if c % 2 == 0
+	%>
+		<tr width= "100%" class = "<%= b %>" >
+			<td class='normal_black'><%= c.to_s %></td>
+			<td class='normal_black'><%= r.name %></td>
+			<td class='normal_black'><%= r.description %></td>
+			<td><%= link_to "Edit", edit_menu_group_path(r), :method => "GET", :id =>r.id, :class => 'blue', :onClick => "call_edit(#{r.id});" %></td>
 		</tr>
-		<% @menugroups.each do |mg| %>
-		<tr id="menu_groups">
-			<td> <%= mg.name %> </td><td><%= mg.description %></td><td> <%= link_to "Edit", edit_menu_group_path(mg), :method => "GET", :remote => true %> </td><td> <%= link_to "Delete", menu_group_path(mg), :method => "DELETE" %> </td>
-		</tr>
+		<% c +=1 %>
 		<% end %>
-	</table>
-</div>
+</table>
+	
+	<script>
+		$("#new_menu_group").click(function (){
+			$("#center_container").load('/menu/groups/new', function() {
+			});
+		});
+		
+		function call_edit(i){
+			$("#center_container").load('/menu/groups/'+parseInt(i)+'/edit',function() {});
+		}
+	</script>

@@ -1,14 +1,31 @@
-<div>
-	<table>
-		<tr>
-		
-			<td> <%= link_to "New_Module", new_menu_module_path, :remote => true, :id=>"new_menu_module" %> </td>
+	<table class = 'table_border' width="100%">
+		<tr class='table_heading'>
+			<th>Sl No</th><th>Module Name</th><th>Description</th><th><%= link_to "New Module", "#", :id => 'create_new_module',:class => 'blue'  %></th>
 		</tr>
-		<% @modulecontexts.each do |mc| %>
-		<tr id="institutions_">
-			<td> <%= mc.name %> </td><td> <%= link_to "Edit", edit_menu_module_path(mc), :method => "GET" %> </td><td> <%= link_to "Delete", menu_module_path(mc), :method => "DELETE" %> </td>
+		<% c=1 %>
+	<% @modulecontexts.each do |r| %>
+	<%
+		b = 'odd' 
+		b = 'even' if c % 2 == 0
+	%>
+		<tr width= "100%" class = '<%= b %>'>
+			<td class='normal_black'><%= c.to_s %></td>
+			<td class='normal_black'><%= r.name %></td>
+			<td class='normal_black'><%= r.description %></td>
+			<td><%= link_to "Edit", edit_user_role_path(r), :method => "GET",:id =>r.id ,:class => 'blue', :onClick => "call_edit(#{r.id});" %></td>
+			<% link_to "Delete", user_role_path(r), :method => "DELETE",:id =>r.id ,:class => 'blue' %>
 		</tr>
+		<% c +=1 %>
 		<% end %>
 	</table>
-</div>
-
+	
+	<script>
+		$("#create_new_module").click(function (){
+			$("#center_container").load('/menu/modules/new', function() {
+			});
+		});
+		
+		function call_edit(i){
+			$("#center_container").load('/menu/modules/'+parseInt(i)+'/edit',function() {});
+		}
+	</script>

@@ -1,50 +1,53 @@
 class Menu::ContainerController < ApplicationController
 
 	def index
-		@containers = Container.all
+		@containers = MenuContainer.all
 	end
 
 	def new
-		@container = Container.new
-		respond_to do |format|
-			format.js
-			format.html
-		end
+		@container = MenuContainer.new
+		render :layout => false
 	end
 
 	def create
-		@container = Container.new(params[:container])
+		@container = MenuContainer.new(params[:container])
 		@status=@container.save!
-		respond_to do |format|
-			format.js
-			format.html { redirect_to(menu_container_index_path)}
-		end
+    if @status
+      flash[:notice]= "Menu Container Created Successfully"
+      redirect_to(menu_container_index_path)
+    else
+      flash[:notice]= "Menu Container Not Created"
+      redirect_to(new_menu_container_path)
+    end
 	end
 
 	def edit
-		@container = Container.find(params[:id])
-		respond_to do |format|
-			format.js
-			format.html
-		end
+		@container = MenuContainer.find(params[:id])
+		render :layout => false
 	end
 
 	def update
-		@container=Container.find(params[:id])
+		@container=MenuContainer.find(params[:id])
 		@status = @container.update_attributes(params[:container])
-		respond_to do |format|
-				format.js
-			format.html { redirect_to(menu_container_index_path)}
-		end
+		if @status
+      flash[:notice]= "Menu Container Updated Successfully"
+      redirect_to(menu_container_index_path)
+    else
+      flash[:notice]= "Menu Container Not Updated.."
+      redirect_to(edit_menu_container_path(@container))
+    end
 	end
 
 	def destroy
-			@menulink = Container.find(params[:id])
-			@status = @menulink.destroy
-			respond_to do |format|
-				format.js
-			format.html { redirect_to(menu_container_index_path)}
-			end
+			@container = MenuContainer.find(params[:id])
+			@status = @container.destroy
+		if @status
+      flash[:notice]= "Menu Container Deleted Successfully"
+      redirect_to(menu_container_index_path)
+    else
+      flash[:notice]= "Menu Container Not Deleted.."
+      redirect_to(edit_menu_container_path(@container))
+    end
 	end
 
 end

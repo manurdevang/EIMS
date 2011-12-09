@@ -1,8 +1,9 @@
 
-<% form_for:modulecontext, :remote => true, :url => menu_module_path, :html => { :method => :put }  do |d|  %>
-<table>
+<% form_for:module_context, :remote => true, :url => menu_module_path, :html => { :method => :put }  do |d|  %>
+<table width="100%" class='table_border'>
+	<tr><td colspan=2 align=center>Edit Module </td></tr>
 	<tr><td> <%= d.label :Name %></td><td><%= d.text_field :name %></td></tr>
-	<tr><td> <%= d.label :Link_Name %></td><td><%= d.text_field :link_name %></td></tr>
+	<tr><td> <%= d.label :Description %></td><td><%= d.text_field :description %></td></tr>
 	<tr><td><%= d.label :Status %></td><td> <%= d.select :status, [["Active","Active"],["Inactive","Inactive"],["Cancelled","Cancelled"]] %></tr>
 	<tr><td></td><td><%= d.submit :Submit %></td></tr>
 </table>

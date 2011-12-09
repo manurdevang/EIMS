@@ -3,6 +3,6 @@ class ModuleContext < ActiveRecord::Base
 	has_many :menu_links
 
 	def capitalize_name
-		self.name= self.name.upcase
+		self.name= self.name.capitalize
 	end
 end

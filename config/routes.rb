@@ -33,6 +33,11 @@ Sms::Application.routes.draw do
 		end	
 	end
 	
+  namespace  :user do
+    resources :user_role_map
+  end
+  
+  
   namespace "hostel" do
 		#resources :modules, :links, :groups, :container, :menu_groups_menu_links
 	end

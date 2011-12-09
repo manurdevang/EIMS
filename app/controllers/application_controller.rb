@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
 #	require "default_config"
 #
  # current_location = DefaultConfig.get[:location_id]
-	
+helper :all
+
   protect_from_forgery
 	def	after_sign_in_path_for(resource)
 	#redirect_to :controller=> :home, :action=> :login		
@@ -16,7 +17,6 @@ class ApplicationController < ActionController::Base
 	end
 
 	#def is_admin
-#puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
 	#	if current_user.id.role == 'Admin'
 	#		return true
 	#	else

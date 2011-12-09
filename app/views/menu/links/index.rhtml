@@ -1,16 +1,35 @@
-<div>
-	<table>
-		<tr>
-			<td> <%= link_to "New_Menu_Link", new_menu_link_path, :remote => true, :id=>"new_menu_link" %> </td>
+	<table class = 'table_border' width="100%">
+		<tr class='table_heading'>
+			<th>Sl No</th><th>Menu LInk Name</th><th>Description</th><th>Controller</th><th>Action</th><th>Path</th><th>Method</th><th><%= link_to "New Menu link", "#", :id => 'create_new_link',:class => 'blue'  %></th>
 		</tr>
-		<tr id="headings">
-				<td>Link Name</td><td>Module Name</td><td>Get</td><td>Delete</td>
+		<% c=1 %>
+	<% @menulinks.each do |r| %>
+	<%
+		b = 'odd' 
+		b = 'even' if c % 2 == 0
+	%>
+		<tr width= "100%" class = '<%= b %>'>
+			<td class='normal_black'><%= c.to_s %></td>
+			<td class='normal_black'><%= r.name %></td>
+			<td class='normal_black'><%= r.description %></td>
+			<td class='normal_black'><%= r.controller %></td>
+			<td class='normal_black'><%= r.action %></td>
+			<td class='normal_black'><%= r.path %></td>
+			<td class='normal_black'><%= r.method %></td>
+			<td><%= link_to "Edit", edit_menu_link_path(r), :method => "GET",:id =>r.id ,:class => 'blue', :onClick => "call_edit(#{r.id});" %></td>
+			<% link_to "Delete", menu_link_path(r), :method => "DELETE",:id =>r.id ,:class => 'blue' %>
 		</tr>
-		<% @menulinks.each do |ml| %>
-		<tr id="menu_links">
-			<td> <%= ml.name %> </td><td><%= ml.module_context.name%></td><td> <%= link_to "Edit", edit_menu_link_path(ml), :remote => true, :method => "GET" %> </td><td> <%= link_to "Delete", menu_link_path(ml), :remote => true, :method => "DELETE" %> </td>
-		</tr>
+		<% c +=1 %>
 		<% end %>
 	</table>
-</div>
-
+	
+	<script>
+		$("#create_new_link").click(function (){
+			$("#center_container").load('/menu/links/new', function() {
+			});
+		});
+		
+		function call_edit(i){
+			$("#center_container").load('/menu/links/'+parseInt(i)+'/edit',function() {});
+		}
+	</script>

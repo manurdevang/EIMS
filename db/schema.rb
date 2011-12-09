@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20111201154302) do
   create_table "menu_containers", :force => true do |t|
     t.string   "name"
     t.string   "description"
+    t.integer  "container_position"
     t.integer  "menu_group_id"
     t.integer  "location_id"
     t.datetime "created_at"
@@ -100,7 +101,7 @@ ActiveRecord::Schema.define(:version => 20111201154302) do
 
   create_table "menu_groups", :force => true do |t|
     t.string   "name"
-    t.integer  "description"
+    t.string   "description"
     t.integer  "role_id"
     t.integer  "location_id"
     t.datetime "created_at"
@@ -110,6 +111,8 @@ ActiveRecord::Schema.define(:version => 20111201154302) do
   create_table "menu_links", :force => true do |t|
     t.string   "name"
     t.string   "description"
+    t.string   "controller"
+    t.string   "action"
     t.string   "path"
     t.string   "method"
     t.string   "status"
@@ -121,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20111201154302) do
 
   create_table "module_contexts", :force => true do |t|
     t.string   "name"
+    t.string   "description"
     t.string   "status"
     t.string   "approved_by"
     t.integer  "location_id"

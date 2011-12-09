@@ -1,1 +1,0 @@
-jQuery("#load_page").html("<%= escape_javascript(render(:partial => "edit", :locals => {:modulecontext => @modulecontext }))%>");

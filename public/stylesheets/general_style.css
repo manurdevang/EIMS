@@ -25,11 +25,50 @@
 	}
 	
 	.block{
-	display: block;
-	clear: both;
+		display: block;
+		clear: both;
 	}
 	
 	.scroll{
 		overflow: auto;
 	}
+	
+	a.blue{
+		font-color :#e92c19;
+		font-size: 13px;
+		font-family: Verdana;
+	}
 
+	.index_heading{
+		font-family: "Comic Sans MS";
+		font-size: 13px;
+		font-style:bold;
+	}
+	
+	table.table_border{
+		border: 1px solid #444433;
+		width: 100%;
+	}
+		
+	tr.odd{
+		background: #888585;
+	}
+	
+	tr.even{
+		background: #FFFFFF;
+	}
+	
+	tr.table_heading{
+		text-align: center;
+		vertical-align: bottom;				
+	}
+	
+	td.normal_black{
+		font-color :#000000;
+		font-size: 14px;
+		font-family: Verdana;
+	}
+
+	div.load_notice{
+		font-color :red;
+	}
