@@ -1,0 +1,20 @@
+<div width="100%">
+	<div id='header_top'>
+		
+	</div>
+
+	<div>
+		<div id='center_header'>
+		
+		</div>
+		<div id='login_header' class='normal_black'>
+			<% if user_signed_in? %>
+				<div> Logged: <%=	current_user.email %> </div>
+				<div ><%= link_to 'Logout', destroy_user_session_path, :class=>'link_white', :method => :delete %></div>
+			<% else %>
+				<%= link_to 'Login', user_session_path %>
+				<%= link_to 'Register', new_user_registration_path %>
+			<% end %>
+		</div>
+	</div>
+</div>
