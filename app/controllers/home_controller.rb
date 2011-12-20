@@ -5,14 +5,26 @@ class HomeController < ApplicationController
 		#user=current_user
 		#@userroles=user.roles
 		#puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-#puts @userroles.count
+		#puts @userroles.count
   end
 	
-	def login
-			user=current_user
-			@userroles=user.roles
-			puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-			puts @userroles.inspect
+	def selectrole
+		if current_user.nil?
+			@userroles=Role.find(3)
+		else
+			@userroles= current_user.roles
+		end
+			render :layout => 'selectrole'
 	end
 
+	def adminpage
+		#user=current_user
+		#@userroles=user.roles
+		#puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+		#puts @userroles.count
+  end
+	
+	def userpage
+		
+	end
 end

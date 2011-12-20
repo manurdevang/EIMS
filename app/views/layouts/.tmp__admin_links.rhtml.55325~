@@ -1,0 +1,30 @@
+		<!-- Accordion -->
+		<div id="accordion">
+			<div>
+				<h3><a href="#">User</a></h3>
+				<div>
+					<%= link_to "Roles" ,user_roles_path %><br>
+					<%= link_to 'Register', new_user_registration_path %>
+					
+				</div>
+			</div>
+			<div>
+				<h3><a href="#">Menu</a></h3>
+				<div>
+					<%= link_to "Menu Module" ,menu_modules_path %><br>
+					<%= link_to "Menu Links" ,menu_links_path %><br>
+					<%= link_to "MEnu Groups" ,menu_groups_path %><br>
+					<%= link_to "Menu Container" ,menu_container_index_path %><br>
+					<%= link_to "Menu Group-Link Mapping" ,menu_menu_groups_menu_links_path %><br>
+				</div>
+			</div>
+			<div>
+				<h3><a href="#">Institution</a></h3>
+				<div>
+					<%= link_to "Institution" ,institution_institutes_path %><br>
+					<%= link_to "Institution Group" ,institution_institution_groups_path %>
+					<%= link_to "Address" ,user_address_path %><br>
+					<%= link_to "Country" ,user_country_index_path %><br>
+				</div>
+			</div>
+		</div>

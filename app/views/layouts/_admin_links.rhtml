@@ -1,4 +1,46 @@
+
+
+
+	<ul class="menu noaccordion">
+		<li>
+			<a class="active" href="#">USER</a>
+			<ul style="display: block;" class="acitem">
+				<li><%= link_to "Roles" ,user_roles_path %></li>
+				<li><%= link_to 'Register', new_user_registration_path %></li>
+			</ul>
+		</li>
+    	<li>
+			<a class="active" href="#">MAPPING</a>
+			<ul style="display: block;" class="acitem">
+				<li><%= link_to "Group_Containers" ,menu_group_menu_containers_menu_mappings_path %></li>
+				<li><%= link_to 'Conteiner_Links', menu_container_menu_groups_menu_mappings_path %></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">MENU</a>
+			<ul style="display: none;" class="acitem">
+				<li><%= link_to "Menu Module" ,menu_modules_path %></li>
+				<li><%= link_to "Menu Links" ,menu_links_path %></li>
+				<li><%= link_to "MEnu Groups" ,menu_groups_path %></li>
+				<li><%= link_to "Menu Container" ,menu_container_index_path %></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">INSTUTIONS</a>
+			<ul style="display: none;" class="acitem">
+				<li><%= link_to "Institution" ,institution_institutes_path %></li>
+				<li><%= link_to "Institution Group" ,institution_institution_groups_path %></li>
+				<li><%= link_to "Address" ,user_address_path %></li>
+				<li><%= link_to "Country" ,user_country_index_path %></li>
+			</ul>
+		</li>
+	</ul>	
+		
+		
+		
+		
 		<!-- Accordion -->
+		<!--
 		<div id="accordion">
 			<div>
 				<h3><a href="#">User</a></h3>
@@ -15,7 +57,6 @@
 					<%= link_to "Menu Links" ,menu_links_path %><br>
 					<%= link_to "MEnu Groups" ,menu_groups_path %><br>
 					<%= link_to "Menu Container" ,menu_container_index_path %><br>
-					<%= link_to "Menu Group-Link Mapping" ,menu_menu_groups_menu_links_path %><br>
 				</div>
 			</div>
 			<div>
@@ -28,3 +69,4 @@
 				</div>
 			</div>
 		</div>
+		-->

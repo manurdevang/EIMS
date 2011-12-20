@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
-	
+
+#before_filter :user_roles, :except => "login"
+#	before_filter :set_role
 #	require "default_config"
 #
  # current_location = DefaultConfig.get[:location_id]
@@ -8,13 +10,14 @@ helper :all
   protect_from_forgery
 	def	after_sign_in_path_for(resource)
 	#redirect_to :controller=> :home, :action=> :login		
-		login_home_index_path
+		selectrole_home_index_path
 	end
 
 	def after_sign_out_path_for(resource)
-		#user_session_path
-		root_path
+		user_session_path
+		#root_path
 	end
+
 
 	#def is_admin
 	#	if current_user.id.role == 'Admin'

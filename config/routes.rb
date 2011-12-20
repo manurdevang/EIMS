@@ -6,18 +6,40 @@ Sms::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "user/registrations" }
 	
 	namespace "user" do
-		resources :roles, :address, :country
+		resources :address, :country
 	end
 	
 	namespace "institution" do
 		resources :institutes, :institution_groups
 	end
-	
-	namespace "menu" do
-		resources :groups, :container, :menu_groups_menu_links
+		
+	namespace "user" do 
+		resources :roles do 
+			get 'user_roles'
+		end
 	end
 
-		namespace :menu do 
+	namespace "user" do 
+		resources :user_roles_map do 
+			get 'user_roles'
+		end
+	end
+	
+	
+	namespace "menu" do
+		resources :groups, :container
+	end
+
+  namespace :menu do 
+    resources :mappings do 
+      collection do
+        get 'menu_group_menu_containers'
+        get 'menu_container_menu_groups'
+      end
+    end 
+  end
+  
+	namespace :menu do 
 		resources :links do 
 			collection do
 				get 'load_links'
@@ -33,10 +55,6 @@ Sms::Application.routes.draw do
 		end	
 	end
 	
-  namespace  :user do
-    resources :user_role_map
-  end
-  
   
   namespace "hostel" do
 		#resources :modules, :links, :groups, :container, :menu_groups_menu_links
@@ -57,6 +75,9 @@ Sms::Application.routes.draw do
   resources :home do
     collection do
       get 'login'
+			get 'selectrole'
+			get 'adminpage'
+			get 'userpage'
         # post 'toggle'
    end
   
