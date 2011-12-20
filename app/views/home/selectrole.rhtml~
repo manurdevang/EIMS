@@ -1,0 +1,7 @@
+<% @userroles.each do |ur| %>
+<table>
+	<tr>
+		<td><%= link_to ur.name,root_path %></td>
+	</tr>
+</table>
+<% end %>

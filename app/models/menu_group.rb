@@ -1,5 +1,5 @@
 class MenuGroup < ActiveRecord::Base
-	has_many :menugroup_menulink
-	has_many :menu_links, :through => :menugroup_menucontainer
+	has_many :menu_containers
+	has_many :menu_links, :through => :menu_container
 	belongs_to :role
 end

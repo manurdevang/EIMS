@@ -1,0 +1,13 @@
+<div >
+	<% if !current_user.nil? %> 
+		<% if current_user.is_admin? %>
+		<% render 'admin_links' %>
+		<% else %>
+		<% puts "this is not " %>
+
+		<% end %>
+	<% else %>
+		<% puts "Not logged in" %>
+	<% end %>
+</div>
+ddddd
