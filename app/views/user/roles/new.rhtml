@@ -2,6 +2,8 @@ Roles Form
 <% form_for :Role, :url => user_roles_path do |c|  %>
 <div style='full_width'>
 		<div><%= c.label :Name %> </div>		<div><%= c.text_field :name %> </div>
+		<div><%= c.label :Controller %> </div>		<div><%= c.text_field :controller %> </div>
+		<div><%= c.label :Action %> </div>		<div><%= c.text_field :action %> </div>
 		<div> </div>		<div><%= c.hidden_field :status, :value =>'Active' %> </div>
 		<div> </div>		<div><%= c.hidden_field :created_by, :value => current_user.id %> </div>
 		<div><%= c.label :Remark %> </div>		<div><%= c.text_field :remarks %> </div>

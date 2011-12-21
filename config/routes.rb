@@ -30,6 +30,14 @@ Sms::Application.routes.draw do
 		resources :groups, :container
 	end
 
+	namespace "menu" do
+		resources :mappings do 
+			get 'role_menu_group'
+			get 'menu_group_containers'
+			get 'menu_container_links'
+		end
+	end
+
   namespace :menu do 
     resources :mappings do 
       collection do
@@ -77,6 +85,7 @@ Sms::Application.routes.draw do
       get 'login'
 			get 'selectrole'
 			get 'adminpage'
+			get 'set_logged_role'
 			get 'userpage'
         # post 'toggle'
    end

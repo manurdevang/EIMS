@@ -1,7 +1,20 @@
 <% @userroles.each do |ur| %>
 <table>
 	<tr>
-		<td><%= link_to ur.name,root_path %></td>
+		<td><%= link_to ur.name,ur.root_path, :id => ur.id, :onClick => "set_role_session(#{ur.id})" %></td>
 	</tr>
 </table>
 <% end %>
+<script>
+//alert('Select ROle You Want to Proceed ');
+function set_role_session(role_id){
+$.ajax({
+                url: "/home/set_logged_role",
+                type: "GET",
+                data: "role_id=" + role_id,
+                error: function() {alert('eerrrr');},
+                success: function(http) {alert('successsss');},
+                complete: function() {}
+        });
+}
+</script>

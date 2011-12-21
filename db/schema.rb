@@ -148,6 +148,8 @@ ActiveRecord::Schema.define(:version => 20111201154302) do
     t.integer  "priority"
     t.boolean  "status"
     t.string   "remarks"
+    t.string   "controller"
+    t.string   "action"
     t.integer  "created_by"
     t.datetime "created_on"
     t.integer  "approved_by"

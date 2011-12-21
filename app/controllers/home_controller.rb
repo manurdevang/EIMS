@@ -27,4 +27,8 @@ class HomeController < ApplicationController
 	def userpage
 		
 	end
+	
+	def set_logged_role
+		session['selected_role'] = params[:role_id]
+	end
 end

@@ -1,4 +1,12 @@
 class UsersRole < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :role
+	
+	def self.root_path
+		puts "++++++++++++++++++++++++++++++++++++++++++++++++++"
+		puts self.controller
+		puts self.action
+		puts '/'+self.controller+'/'+self.action
+		sfd
+	end
 end

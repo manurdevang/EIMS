@@ -1,0 +1,10 @@
+Role menu group
+<table>
+	<%
+	menu_group_for_select = [] 
+	menu_groups=@menu_groups.collect {|mg| [mg.name, mg.id] } %>
+	<tr>
+		<td><%= select("menu", "group_id", menu_groups, { :include_blank => false }) %></td>		
+	</tr>
+</table>
+

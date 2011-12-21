@@ -13,4 +13,8 @@ class Role < ActiveRecord::Base
 	def capitalise_mathod	
 		self.name = self.name.capitalize
 	end
+
+	def root_path
+		return '/'+self.controller+'/'+self.action
+	end
 end
