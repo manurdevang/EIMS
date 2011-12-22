@@ -15,13 +15,15 @@ Sms::Application.routes.draw do
 		
 	namespace "user" do 
 		resources :roles do 
-			get 'user_roles'
 		end
 	end
 
 	namespace "user" do 
 		resources :user_roles_map do 
-			get 'user_roles'
+			collection do
+				get 'user_roles_mapping'
+				get 'load_user_roles'
+			end
 		end
 	end
 	
@@ -32,9 +34,11 @@ Sms::Application.routes.draw do
 
 	namespace "menu" do
 		resources :mappings do 
-			get 'role_menu_group'
-			get 'menu_group_containers'
-			get 'menu_container_links'
+			collection do
+				get 'role_menu_group'
+				get 'menu_group_containers'
+				get 'menu_container'
+			end
 		end
 	end
 
@@ -43,6 +47,7 @@ Sms::Application.routes.draw do
       collection do
         get 'menu_group_menu_containers'
         get 'menu_container_menu_groups'
+				get 'menu_container_links'
       end
     end 
   end

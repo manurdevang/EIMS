@@ -1,0 +1,11 @@
+user roles mapping page
+<table>
+	<tr><td>Users</td><td><%= select_tag :user,options_from_collection_for_select(User.find(:all), :id, :email),{ :onchange => "load_roles(this);"} %></td></tr>
+	<tr><td colspan='2'><div id='load_roles'></div></td></tr>
+</table>
+<script>
+	function load_roles(i){
+		params = 'user_id='+parseInt(i.value)
+		$('#load_roles').load('/user/user_roles_map/load_user_roles?'+params);
+	}
+</script>

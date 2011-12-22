@@ -1,0 +1,4 @@
+user roles mapping page
+<table>
+	<tr> <td>Users</td><td><%=select_tag :user, :name, users_for_select %> </td> </tr>
+</table>

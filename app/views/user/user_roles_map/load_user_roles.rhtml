@@ -1,0 +1,17 @@
+<table>
+	<tr>
+<% c=1 %>
+	<% @roles.each do |r| %>
+	<% 
+		puts "<tr>" if c % 3 == 0
+	%>
+			<td><%= r.name %>
+			</td>
+	<% 
+		puts "</tr>" if c % 3 == 0
+	%>
+<% @userroles.each do |ur| %>
+	<tr><td><%= ur.id %></td></tr>
+<% c +=1 %>
+<% end %>
+</table>
