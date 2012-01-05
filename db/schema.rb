@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111201154302) do
+ActiveRecord::Schema.define(:version => 20120103170640) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "personel_information_id"
@@ -93,7 +93,15 @@ ActiveRecord::Schema.define(:version => 20111201154302) do
     t.string   "name"
     t.string   "description"
     t.integer  "container_position"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "menu_group_menu_containers", :force => true do |t|
     t.integer  "menu_group_id"
+    t.integer  "menu_container_id"
+    t.integer  "created_by"
     t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -148,8 +156,6 @@ ActiveRecord::Schema.define(:version => 20111201154302) do
     t.integer  "priority"
     t.boolean  "status"
     t.string   "remarks"
-    t.string   "controller"
-    t.string   "action"
     t.integer  "created_by"
     t.datetime "created_on"
     t.integer  "approved_by"
@@ -157,6 +163,8 @@ ActiveRecord::Schema.define(:version => 20111201154302) do
     t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "controller"
+    t.string   "action"
   end
 
   create_table "users", :force => true do |t|

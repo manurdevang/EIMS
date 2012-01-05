@@ -1,10 +1,24 @@
-Role menu group
-<table>
-	<%
-	menu_group_for_select = [] 
-	menu_groups=@menu_groups.collect {|mg| [mg.name, mg.id] } %>
-	<tr>
-		<td><%= select("menu", "group_id", menu_groups, { :include_blank => false }) %></td>		
+
+<table class = 'table_border' width="100%">
+	<% menu_groups = @menu_groups.collect {|mg| [mg.name, mg.id] }
+				 	 roles = @roles.collect {|r| [r.name, r.id] } %>
+	<%= form_tag(role_menu_group_save_menu_mappings_path, :method => 'POST', :remote => true) do %>
+	<tr width = '100%' class = 'odd'>
+		<td>MenuGroup</td>
+		<td>Role</td>
 	</tr>
+	<% @menu_groups.each do |mg| %>
+	<tr width = '100%' class = 'even'>
+		<td><%= mg.name %></td><td><%= Role.find(mg.role_id).name %></td>
+	</tr>
+<% end %>
+	<tr>
+		<td><%= select("menu", "group_id", menu_groups, { :include_blank => false }) %></td>
+		<td><%= select("role", "id", roles, { :include_blank => false }) %></td>
+	</tr>
+	<tr>
+		<td></td><td><%= submit_tag('Save') %></td>
+	</tr>
+<% end %>
 </table>
 

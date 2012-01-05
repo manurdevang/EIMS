@@ -4,7 +4,6 @@ class CreateMenuContainers < ActiveRecord::Migration
 			t.string :name
 			t.string :description
       t.integer :container_position
-			t.integer :menu_group_id
 			t.integer :location_id
       t.timestamps
     end

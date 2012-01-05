@@ -1,17 +1,27 @@
-<table>
-	<tr>
-<% c=1 %>
+<%= form_tag(save_user_roles_user_user_roles_map_index_path, :method => 'POST', :remote => true) do  %>
+<table class = 'table_border' width="100%">
+<% c = 1
+ d = 1 %>
 	<% @roles.each do |r| %>
-	<% 
-		puts "<tr>" if c % 3 == 0
-	%>
-			<td><%= r.name %>
-			</td>
-	<% 
-		puts "</tr>" if c % 3 == 0
-	%>
-<% @userroles.each do |ur| %>
-	<tr><td><%= ur.id %></td></tr>
-<% c +=1 %>
-<% end %>
+		<% if c % 2 == 0	
+				b = 'odd' 
+				b = 'even' if d % 2 == 0
+			%>
+				<tr width = '100%' class = '<%= b %>'>
+		<% end %>
+				<% role_included =	@userroles.include?(r) %>
+				<%= hidden_field 'user', 'id',:value => @user.to_i %>
+				<% if role_included == true %>
+						<td><%= r.name %></td><td> <%= check_box_tag "role[#{r.id}]", 'true', true %></td>	
+				<% else %>
+						<td><%= r.name %></td><td><%=	 check_box_tag "role[#{r.id}]", 'false', false	%></td>
+			  <%	end %>
+		<% if c % 2 == 0	%>
+				<tr>
+		<% end %>
+		<% c= c+1
+ d= d+1 %>
+	<% end %>
+<tr><td><%= submit_tag('Save') %></td></td>
 </table>
+<% end %>

@@ -1,5 +1,6 @@
 user roles mapping page
-<table>
+
+<table  class = 'table_border' width="100%">
 	<tr><td>Users</td><td><%= select_tag :user,options_from_collection_for_select(User.find(:all), :id, :email),{ :onchange => "load_roles(this);"} %></td></tr>
 	<tr><td colspan='2'><div id='load_roles'></div></td></tr>
 </table>

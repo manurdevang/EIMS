@@ -23,6 +23,7 @@ Sms::Application.routes.draw do
 			collection do
 				get 'user_roles_mapping'
 				get 'load_user_roles'
+				post 'save_user_roles'
 			end
 		end
 	end
@@ -36,6 +37,7 @@ Sms::Application.routes.draw do
 		resources :mappings do 
 			collection do
 				get 'role_menu_group'
+				post 'role_menu_group_save'
 				get 'menu_group_containers'
 				get 'menu_container'
 			end
