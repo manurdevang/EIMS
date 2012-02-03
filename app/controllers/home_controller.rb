@@ -29,6 +29,6 @@ class HomeController < ApplicationController
 	end
 	
 	def set_logged_role
-		session['selected_role'] = params[:role_id]
+		set_role_session(params[:role_id])
 	end
 end

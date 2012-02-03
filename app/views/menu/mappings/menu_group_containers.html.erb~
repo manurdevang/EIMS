@@ -1,1 +1,17 @@
-menu contianere
+Menu Group Menu Container Mapping Page
+<% @menu_groups.each do |mg| %>
+	<table class = 'table_border' width = "100%" >
+		<tr class = "even">
+			<td><%= link_to "#{mg.name}", '#', :id => mg.id, :onclick => "call_page(#{mg.id});" %></td>
+		</tr>
+		<tr>
+			<td><div id= "load_mapping_page_<%=	mg.id %>"></div></td>
+		</tr>
+	</table>
+<% end %>
+	<script>
+			function call_page(i){
+			$("#load_mapping_page_"+i).load('/menu/mappings/menu_group_containers_mapping_page?menu_group_id='+i, function() {
+				});
+			}
+	</script>

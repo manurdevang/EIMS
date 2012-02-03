@@ -1,8 +1,12 @@
 <table class='login' >
 		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 	<tr>
-			<td><%= f.label :email %></td>
-			<td><%= f.email_field :email %></td>
+			<td><% f.label :email %></td>
+			<td><% f.email_field :email %></td>
+	</tr>
+	<tr>
+			<td><%= f.label :name %></td>
+			<td><%= f.text_field :name %></td>
 	</tr>
 	<tr>
 		 <td><%= f.label :password %></td>

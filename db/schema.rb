@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(:version => 20120103170640) do
 
   create_table "addresses", :force => true do |t|
-    t.integer  "personel_information_id"
+    t.integer  "user_id"
     t.integer  "phone"
     t.string   "street"
     t.string   "place"

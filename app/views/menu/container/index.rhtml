@@ -1,6 +1,6 @@
 	<table class = 'table_border' width="100%">
 		<tr class='table_heading'>
-			<th>Sl No</th><th>Menu Container</th><th>Description</th><th>Container Position</th><th><%= link_to "New Container", "#", :id => 'new_container_link',:class => 'blue'  %></th>
+			<th>Sl No</th><th>Menu Container</th><th>Description</th><th>Container Position</th><th><%= link_to "New Container", new_menu_container_path, :id => 'new_container_link',:class => 'blue'  %></th>
 		</tr>
 		<% c=1 %>
 	<% @containers.each do |r| %>
@@ -13,11 +13,12 @@
 			<td class='normal_black'><%= r.name %></td>
 			<td class='normal_black'><%= r.description %></td>
 			<td class='normal_black'><%= r.container_position %></td>			
-			<td><%= link_to "Edit", edit_user_role_path(r), :method => "GET",:id =>r.id ,:class => 'blue', :onClick => "call_edit(#{r.id});" %></td>
-			<% link_to "Delete", user_role_path(r), :method => "DELETE",:id =>r.id ,:class => 'blue' %>
+			<td><%= link_to "Edit", "#", :method => "GET",:id =>r.id ,:class => 'blue', :onClick => "call_edit(#{r.id});" %></td>
+			<% link_to "Delete", menu_container_path(r), :method => "DELETE",:id =>r.id ,:class => 'blue' %>
 		</tr>
 		<% c +=1 %>
 		<% end %>
+		<tr><td><div id = 'center_container_load'></div></td></tr>
 	</table>
 	
 	<script>
@@ -27,6 +28,7 @@
 		});
 		
 		function call_edit(i){
-			$("#center_container").load('/menu/container/'+parseInt(i)+'/edit',function() {});
+alert(i	);
+			$("#center_container_load").load('/menu/container/'+parseInt(i)+'/edit',function() {});
 		}
 	</script>

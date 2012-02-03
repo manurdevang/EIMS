@@ -5,17 +5,8 @@ Sms::Application.routes.draw do
   #devise_for :users
   devise_for :users, :controllers => { :registrations => "user/registrations" }
 	
-	namespace "user" do
-		resources :address, :country
-	end
-	
 	namespace "institution" do
 		resources :institutes, :institution_groups
-	end
-		
-	namespace "user" do 
-		resources :roles do 
-		end
 	end
 
 	namespace "user" do 
@@ -26,12 +17,13 @@ Sms::Application.routes.draw do
 				post 'save_user_roles'
 			end
 		end
+
+		resources :roles do 
+		end
+		
+		resources :address, :country
 	end
 	
-	
-	namespace "menu" do
-		resources :groups, :container
-	end
 
 	namespace "menu" do
 		resources :mappings do 
@@ -40,8 +32,17 @@ Sms::Application.routes.draw do
 				post 'role_menu_group_save'
 				get 'menu_group_containers'
 				get 'menu_container'
+				get 'menu_group_containers_mapping_page'
+				post 'menu_group_containers_mapping_page_save'
+				get 'menu_container_links'
+				get 'menu_container_links_mapping_page'
+				post 'menu_container_links_mapping_page_save'
+				get 'module_links'
 			end
 		end
+
+		resources :groups, :container
+
 	end
 
   namespace :menu do 
@@ -49,27 +50,29 @@ Sms::Application.routes.draw do
       collection do
         get 'menu_group_menu_containers'
         get 'menu_container_menu_groups'
-				get 'menu_container_links'
       end
-    end 
-  end
-  
-	namespace :menu do 
+    end
+		
 		resources :links do 
 			collection do
 				get 'load_links'
 			end
-		end	
-	end
+		end
 
-	namespace :menu do 
 		resources :modules do 
 			collection do
 				get 'load_modules'
 			end
+		end		 
+  end
+		
+	namespace :student do
+		resources :students do
+			collection do
+				get 'student_registration'
+			end
 		end	
 	end
-	
   
   namespace "hostel" do
 		#resources :modules, :links, :groups, :container, :menu_groups_menu_links

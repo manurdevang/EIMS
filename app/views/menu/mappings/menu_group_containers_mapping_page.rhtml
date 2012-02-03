@@ -1,0 +1,21 @@
+<table class = 'table_border'>
+<%= form_tag(menu_group_containers_mapping_page_save_menu_mappings_path, :method => 'POST', :remote => true) do %>
+<% mgc = []
+@menu_group_containers.collect {|m| mgc << m.menu_container_id}
+ %>
+	<% @menu_containers.each do |mc|
+				if	mgc.include?(mc.id)
+						container_included = true
+				else
+					container_included = false
+				end %>
+
+				<% if container_included == true %>
+					<tr><td><%= mc.name %></td><td> <%= check_box_tag "container[#{mc.id}]", 'true', true %></td>	</tr>
+				<% else %>
+					<tr><td><%= mc.name %></td><td><%= check_box_tag "container[#{mc.id}]", 'false', false	%></td></tr>
+			  <%	end %>
+		<% end %>
+	<tr><td><%= hidden_field 'menu', 'group', :value => params[:menu_group_id] %></td><td><%= submit_tag('Save') %></td></tr>
+<% end %>
+</table>

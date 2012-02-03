@@ -7,7 +7,7 @@
 				b = 'odd' 
 				b = 'even' if d % 2 == 0
 			%>
-				<tr width = '100%' class = '<%= b %>'>
+				<tr class = '<%= b %>'>
 		<% end %>
 				<% role_included =	@userroles.include?(r) %>
 				<%= hidden_field 'user', 'id',:value => @user.to_i %>

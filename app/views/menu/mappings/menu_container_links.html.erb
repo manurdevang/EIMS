@@ -1,1 +1,19 @@
-Menu container menu links
+Menu Container Menu Links
+<table width = "100%" class = 'table_border'>
+		<%# @menu_containers.each do |mc| %>
+				<tr  width = '100%' class = 'odd'><td><%= select_tag :menucontainer,options_from_collection_for_select(MenuContainer.find(:all), :id, :name),{:onchange => "load_links(this.value);"} %>
+				</td></tr>
+					<%# end %>
+		<tr>
+		<td>
+			<div id = 'load_module_links'></div>
+		</td>
+	</tr>
+</table>
+	<script>
+			function load_links(i){
+			$("#load_module_links").load('/menu/mappings/menu_container_links_mapping_page?menu_container_id='+i, function() {
+				});
+			}
+	</script>
+

@@ -4,9 +4,8 @@ class ApplicationController < ActionController::Base
 #	before_filter :set_role
 #	require "default_config"
 #
- # current_location = DefaultConfig.get[:location_id]
+# current_location = DefaultConfig.get[:location_id]
 helper :all
-
   protect_from_forgery
 	def	after_sign_in_path_for(resource)
 	#redirect_to :controller=> :home, :action=> :login		
@@ -18,14 +17,22 @@ helper :all
 		#root_path
 	end
 
+	def set_role_session(role_id)
+		puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+puts role_id.inspect
+		session[:role] = role_id
+		
+		puts session[:role]
+	end
 
 	#def is_admin
 	#	if current_user.id.role == 'Admin'
 	#		return true
 	#	else
 	#		return false
-#		end
-#	end
+	#	end
+	#end
+
 	#def after_sign_in_path_for(resource)
 	#	  unless resource.class.to_s == "FactoryLogin"
 	#	    if current_user.admin?

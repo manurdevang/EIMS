@@ -1,0 +1,23 @@
+<table width='100%'>
+	<tr>
+		<td>
+			<h5>Student Registration</h5>
+		</td>
+	</tr>
+	<tr>
+		<td>
+<% form_tag(:action => 'save_student_registration', :multipart => true) do %>
+	<% fields_for :user, builder => LabelFormBuilder do |u| %>
+		
+	<% end %>
+	<% fields_for :personnel_information, builder => LabelFormBuilder do |pi| %>
+
+	<% end %>
+	<% fields_for :address, builder => LabelFormBuilder do |add| %>
+
+	<% end %>
+	<%= submit_tag('Submit') %>
+<% end %>
+		</td>	
+	</tr>
+</table>

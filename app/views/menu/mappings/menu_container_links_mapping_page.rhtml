@@ -1,0 +1,42 @@
+<table width = "100%">
+	<tr>
+		this is menu container id<td><%= @menu_container_id %></td>
+	</tr>
+	<tr>
+		<td>
+			<table class = 'table_border' width = "100%">
+					<% c=0 
+					d = 1 %>
+					<% if !@menu_modules.nil?
+					 @menu_modules.each do |ml| %>
+					<% b= "odd"
+						b = "even" if c % 2 == 0 %>
+					<% if d % 2  == 0 %>
+							<tr>
+					<% end %>
+							<td>MODULE&nbsp;&nbsp;&nbsp;<%= ml.name %></td><td><%= check_box_tag "module","#{ml.id}",false, :onchange => "load_module_links(this.value,#{@menu_container_id})" %></td>
+					<% if d % 2 == 0 %>
+							</tr>		
+					<% end %>
+					<%  c +=1
+							d +=1 %>
+					<% end %>
+				<% end %>
+			</table>
+		<td>
+	</tr>
+	<tr>
+		<td>
+				<table width = "100%">
+					<tr><td>
+					<div id='load_linkks'></div>
+					</td></tr>
+				</table>
+		</td>
+	</tr>
+</table>
+<script>
+	function load_module_links(i,s){
+		$('#load_linkks').load('/menu/mappings/module_links?module_id='+i+'&menu_container_id='+s);
+	}
+</script>

@@ -1,0 +1,24 @@
+<%= form_tag(menu_container_links_mapping_page_save_menu_mappings_path, :method => 'POST', :remote => true) do %>
+<% mcl = []
+@menu_container_menu_links.collect {|m| mcl << m.menu_link_id}
+ %>
+<table class = 'table_border' width = "100%">
+	<tr width = "100%"><td colspan="2" align= "center" bgcolor="#cccccc"><%= @menu_modules.name %></td></tr>
+	<% if !@menu_links.nil? %>
+		<% @menu_links.each do |ml|
+				if	mcl.include?(ml.id)
+						container_included = true
+				else
+					container_included = false
+				end  %>
+				<% if container_included == true %>
+					<tr><td><%= ml.name %></td><td><%= check_box_tag "menu_links[#{ml.id}]", "true", true %></td></tr>
+				<% else %>
+					<tr><td><%= ml.name %></td><td><%= check_box_tag "menu_links[#{ml.id}]", "false", false %></td></tr>
+			  <%	end %>
+		<% end %>
+	<% end %>
+	<tr><td><%= hidden_field 'menu_container', 'id', :value=>@menu_container_id %></td></tr>
+	<tr><td><%= submit_tag('Save') %></td></tr>
+</table>
+	<% end %>

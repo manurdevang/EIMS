@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sms</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :all %>
+  <%= csrf_meta_tag %>
+  
+</head>
+<body class='body' height= "100%">
+	<div id='page'>
+		<div id='header'><%= render :partial => "layouts/header" %></div>
+	
+		<div id='top_menu'></div>
+
+		<div id='container'>
+		<%
+		puts "+++++++++++++++++++++++++++++++application"
+				session['role'] = ''
+	 puts session['role'].inspect %>
+			<div id='left_menu'><%= render :partial=> "layouts/leftmenu" %></div>
+			<div id='center_container'>
+				<div class="load_notice"><%= flash[:notice] %></div>
+				<div id="load_page"></div>
+				<%= yield %>
+			</div>
+
+		</div>		
+		<div id='footer'><%= render :partial => "layouts/footer"%></div>
+	</div>
+</body>
+</html>

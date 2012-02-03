@@ -1,0 +1,3 @@
+save page
+
+<%= flash[:notice] %>

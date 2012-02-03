@@ -1,0 +1,55 @@
+/* Layout Styles  */
+
+#page{
+	background:#ffffff;
+	width:100%;
+	border:0px solid red;
+	}
+
+#header{
+	height:30%;
+	background:#5c8bac;
+	}
+
+#container{
+	min-height:500px;
+	width:100%;
+	background:#DDDDDD;
+	}
+
+#footer{
+	height:10%;
+	background:#5c8bac;
+	}
+
+#top_menu{
+
+	}
+
+#left_menu{
+		border-right:1px solid #cccccc;
+		width:15%;
+		height: 100%;
+		min-height: 298px;
+		float:left;
+		text_align:center:
+	}
+
+#center_container{
+	border:0px solid blue;
+	width:80%;
+	float:right;
+	text_align:center:
+	}
+
+#logo_header{
+	float:left;
+	}
+
+#center_header{
+	text_align:center:
+	}
+
+#logo_header{
+	float:right;
+	}

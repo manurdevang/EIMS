@@ -6,7 +6,7 @@ class Menu::ContainerController < ApplicationController
 
 	def new
 		@container = MenuContainer.new
-		render :layout => false
+		#render :layout => false
 	end
 
 	def create
