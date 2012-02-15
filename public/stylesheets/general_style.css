@@ -72,3 +72,7 @@
 	div.load_notice{
 		font-color :red;
 	}
+
+	.textbox{
+	border: 1px solid #5A90CC;
+	}

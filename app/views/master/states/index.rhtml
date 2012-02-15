@@ -1,0 +1,21 @@
+<table  class = 'table_border' width="100%" border = 1 >	
+<tr class='table_heading'>
+			<th>Sl No</th><th>State Name</th><th>Country</th><th>Status</th><th><%= link_to "New State",new_master_state_path %></th>
+</tr>
+	<% i=0 %>
+	<% if !@state.nil? %>
+	<% @state.each do |st| %>
+	<% i+=1  %>
+		<tr>
+					<td><%= i %></td>  
+					<td><%= st.name %></td>
+					<td><%= st.country_id %> </td>
+					<td><%= st.status %></td>
+					<td><%= link_to "Edit", edit_master_state_path(st) %></td>
+					<td><%= link_to "Delete", master_state_path(st), :action => 'destroy', :method => "DELETE" %></td>
+		</tr>
+	<% end %>
+<% else %>
+	No Records cound
+<% end %>
+</table>

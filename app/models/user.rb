@@ -37,4 +37,12 @@ class User < ActiveRecord::Base
 				puts "Admin Not created...."
 		end
 	end
+
+	def permanent_address
+		self.personel_information.personel_information.find_by_parent_type("Father")
+	end
+
+	def temporary_address
+		self.personel_information.personel_information.find_by_parent_type("Father")
+	end
 end

@@ -41,10 +41,6 @@ class Menu::MappingsController < ApplicationController
 		end
 		needtodelete = precont - curcont
 		needtocreate = curcont - precont
-		puts "++++++++++++++++++++++++++++++++++++++mapping controller"
-		puts needtodelete.inspect
-		puts needtocreate.inspect
-	
 		deletestatus = true, createstatus = true
 		needtodelete.each do |ntd|
 		@del = MenuGroupMenuContainer.find_all_by_menu_group_id_and_menu_container_id(params[:menu][:group],ntd)
@@ -95,6 +91,10 @@ class Menu::MappingsController < ApplicationController
 		@menu_links_by_form = params[:menu_links].each { |key,value| curlinks << key.to_i }
 		needtodelete = prelinks - curlinks
 		needtocreate = curlinks - prelinks
+		puts "+++++++++++++++++++++++++++++++++container menu link saving in mapping controller"
+puts needtocreate.insepct
+puts needtodelete.inspect
+
 		deletestatus = true, createstatus = true
 		needtodelete.each do |ntd|
 		@del = MenuContainerMenuLink.find_by_menu_container_id_and_menu_link_id(params[:menu_container_id],ntd)

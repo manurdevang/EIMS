@@ -1,12 +1,16 @@
 <div >
 	<ul class="menu noaccordion">
 	<% if !current_user.nil? %> 
-		<% Role.find(5).menu_group.menu_containers.each do |con|	%>
+		<% Role.find(4).menu_group.menu_containers.each do |con|	%>
 		<li>
 			<a class="active" href="#"><%= con.name %></a>
 			<ul style="display: block;" class="acitem">
 				<% con.menu_links.each do |ml| %>
-				<li><%= link_to "#{ml.name}", send("#{ml.path}") %></li>
+				<% puts ml.id.to_s 
+					puts ml.name
+				#	puts ml.path
+ %>
+				<li><%= link_to "#{ml.name}", send(ml.path) %></li>
 				<% end %>
 			</ul>
 		</li>
@@ -15,9 +19,4 @@
 	<% else %>
 		<% puts "Not logged in" %>
 	<% end %>
-<%
-	puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&left menu "
-	puts session[:role].inspect
-%>
-
-</div>
+</div>	

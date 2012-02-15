@@ -1,0 +1,11 @@
+<div>
+	Country 
+	<% form_for :country, :url=> master_countries_path do |c| %>
+<table width = "100%">
+<tr><td><%= c.label :Name %></td><td><%= c.text_field :name %></td></tr>
+<tr><td><%= c.label :Nationlity %></td><td><%= c.text_field :nationality %></td></tr>
+		<%= c.hidden_field :status, :value=> 'Active' %>
+<tr></td><td><%= c.submit %></td></tr>
+	<% end %>	
+</table>
+<div>

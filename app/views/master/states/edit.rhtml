@@ -1,0 +1,9 @@
+<div>
+	Country 
+	<% form_for @country, :url=> master_state_path, :html => { :method => :put } do |c| %>
+		<%= c.text_field :name %>
+		<%= c.text_field :nationality %>	
+		<%= c.hidden_field :status, :value=> 'Active' %>
+		<%= c.submit %>
+	<% end %>	
+<div>

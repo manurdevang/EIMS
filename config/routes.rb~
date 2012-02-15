@@ -21,7 +21,7 @@ Sms::Application.routes.draw do
 		resources :roles do 
 		end
 		
-		resources :address, :country
+		resources :address
 	end
 	
 
@@ -70,10 +70,23 @@ Sms::Application.routes.draw do
 		resources :students do
 			collection do
 				get 'student_registration'
+				post 'save_student_registration'
 			end
 		end	
 	end
   
+	namespace :master do
+		resources :countries do 
+
+		end
+		resources :states do
+
+		end
+		resources :religion do 
+	
+		end
+	end
+	
   namespace "hostel" do
 		#resources :modules, :links, :groups, :container, :menu_groups_menu_links
 	end

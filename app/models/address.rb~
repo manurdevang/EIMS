@@ -5,5 +5,5 @@
 # country                 	 text         
 # narration	                 text
 class Address < ActiveRecord::Base
-belongs_to :user_id
+	belongs_to :personel_information
 end

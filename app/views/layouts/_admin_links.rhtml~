@@ -6,25 +6,6 @@
 				<li><%= link_to 'Register', new_user_registration_path %></li>
 			</ul>
 		</li>
-
-
-user_roles_path
-new_user_registration_path
-menu_group_containers_menu_mappings_path
-menu_container_links_menu_mappings_path
-menu_group_menu_containers_menu_mappings_path
-user_roles_mapping_user_user_roles_map_index_path
-role_menu_group_menu_mappings_path
-menu_container_index_path
-menu_modules_path
-menu_links_path
-menu_groups_path
-institution_institutes_path
-institution_institution_groups_path
-user_address_path
-user_country_index_path
-
-
     	<li>
 			<a class="active" href="#">MAPPING</a>
 			<ul style="display: block;" class="acitem">

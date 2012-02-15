@@ -4,6 +4,9 @@ class Student::StudentsController < ApplicationController
 	end
 
 	def save_student_registration
+
+		puts "+++++++++++++++++++++++++++++++++++++save student registration"
+		erejkl
 		
 	end
 end

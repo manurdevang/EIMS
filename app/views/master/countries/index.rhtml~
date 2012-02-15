@@ -1,0 +1,16 @@
+<table  class = 'table_border' width="100%" border = 1 >	
+<tr class='table_heading'>
+			<th>Sl No</th><th>Country Name</th><th>Status</th><th><%= link_to "New Country",new_master_country_path %></th>
+</tr>
+	<% i=0 %>
+	<% @countries.each do |con| %>
+	<% i+=1  %>
+		<tr>
+					<td><%= i %></td>  
+					<td><%= con.name %></td>
+					<td><%= con.status %></td>
+					<td><%= link_to "Edit", edit_master_country_path(con) %></td>
+					<td><%= link_to "Delete", master_country_path(con), :action => 'destroy', :method => "DELETE" %></td>
+		</tr>
+	<% end %>
+</table>

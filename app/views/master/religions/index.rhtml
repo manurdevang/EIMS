@@ -1,0 +1,20 @@
+<table  class = 'table_border' width="100%" border = 1 >	
+<tr class='table_heading'>
+			<th>Sl No</th><th>Releigion Name</th><th>Status</th><th><%= link_to "New State",new_master_state_path %></th>
+</tr>
+	<% i=0 %>
+	<% if !@religions.nil? %>
+	<% @religions.each do |rl| %>
+	<% i+=1  %>
+		<tr>
+					<td><%= i %></td>  
+					<td><%= rl.name %></td>
+					<td><%= rl.status %></td>
+					<td><%= link_to "Edit", edit_master_religion_path(rl) %></td>
+					<td><%= link_to "Delete", master_religion_path(rl), :action => 'destroy', :method => "DELETE" %></td>
+		</tr>
+	<% end %>
+<% else %>
+	No Releigions cound
+<% end %>
+</table>

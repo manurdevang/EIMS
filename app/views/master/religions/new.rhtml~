@@ -1,0 +1,11 @@
+<div>
+	Country 
+	<% form_for :state, :url=> master_religion_index_path do |c| %>
+<table width = "100%">
+<tr><td><%= c.label :State_Name %></td><td><%= c.text_field :name %></td></tr>
+<tr><td><%= c.label :Country %></td><td><%= c.select :country_id, country_collection %></td></tr>
+		<%= c.hidden_field :status, :value=> 'Active' %>
+<tr></td><td><%= c.submit %></td></tr>
+	<% end %>	
+</table>
+<div>
