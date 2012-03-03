@@ -1,0 +1,4 @@
+<div> New Designation Type </div>
+<%= form_for @designation_type, :url => {:action => :create} do |designation_type|%>
+<%= render :partial => "form", :locals => {:designation_type => designation_type }%>
+<% end%>

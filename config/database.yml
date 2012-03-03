@@ -2,9 +2,10 @@
 #   gem install sqlite3
 development:
   adapter: mysql2
-  database: smsdb
+  database: eims
   #database: eims
   username: root
+  password: mysql
   pool: 5
   timeout: 5000
 

@@ -1,0 +1,2 @@
+module Academic::GradesHelper
+end

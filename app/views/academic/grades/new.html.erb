@@ -1,0 +1,5 @@
+<div> New Grade </div>
+<%= form_for @grade, :url => {:action => :create} do |grade|%>
+<%= render :partial => "form" , :locals => {:grade => grade}%>
+<% end %>
+

@@ -1,0 +1,16 @@
+<table class ="table_border">
+<tr><td></td></tr>
+<tr>
+<td> <%= section.label :name%> </td>
+<td> <%= section.text_field :name%>
+</tr>
+<tr>
+<td> <%= section.label :location%></td>
+<td> <%= section.select :location_id, locations_for_select%> </td>
+</tr>
+<tr> 
+<td> <%= section.label :status%> </td>
+<td> <%= section.select :status, status_for_masters %> </td>
+</tr>
+<tr><td> <%= section.submit "Submit"%></td></tr>
+</table>

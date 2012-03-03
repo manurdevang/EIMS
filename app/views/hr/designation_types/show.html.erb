@@ -1,0 +1,29 @@
+<div> Designation Type : <%= @designation_type.name%></div>
+<div> Status : <%= @designation_type.status? ? "Active" : "InActive" %> </div>
+<div> Location : <%= @designation_type.location.name%> </div>
+<div style="float:right"> <%= link_to "Add Designation", "#", :id=> "new_designation"%> </div>
+<table class="table_border">
+<thead>
+<tr> 
+<td>S.No </td>
+<td> Name </td>
+<td> Status </td>
+<td> Actions </td>
+ </tr>
+ </thead>
+<tbody>
+<% count = 0%>
+<% @designation_type.designations.each do |designation|%>
+<% c = count % 2 == 0 ? "even" : "odd">
+<tr class ="<%= c%>">
+<td><%= count %> </td>
+<td> <%= designation.name %> </td>
+<td> <%= designation.status? ? "Active" : "InActive" %></td>
+<td></td>
+</tr>
+<% end %>
+ </tbody>
+</table>
+
+
+ 	 

@@ -1,0 +1,40 @@
+<div style="float:left"><b> Designations </b></div>
+<div style="float:right"><%= link_to "New Designation", "#", :id =>"new_designation"%></div><br/>
+<table class = 'table_border' width="100%">
+	<thead>
+		<tr>
+			<th>S.No</th>
+			<th> Name</th>
+			<th> Status</th>
+			<th> Actions </th>			
+		</tr>
+	</thead>
+	<tbody>
+		<% count = 1%>
+		<% @designations.each do |designation| %>
+		<% c = 'odd'%>
+		<% c= 'even' if count % 2 == 0 %>
+		<tr width= "100%" class = "<%= c%>">
+			<td class='normal_black'> <%= count %></td>
+			<td class='normal_black'> <%= designation.name %></td>
+			<td class='normal_black'> <%= designation.status %></td>
+			<td><%= link_to "Edit", "#", :id => "edit_designation", :onclick => "edit_designation(#{designation.id})"%></td>
+		</tr>
+		<% count +=1 %><% end %>		
+</tbody>		
+	</thead>
+</table>
+
+<script>
+$('#new_designation').click(function()
+{
+	$('#center_container').load('/hr/designations/new', function(){
+});
+})
+function edit_designation(des)
+{
+	$('#center_container').load('/hr/designations/'+parseInt(des)+'/edit', function(){
+})
+}
+
+</script>

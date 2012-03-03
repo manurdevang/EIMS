@@ -1,0 +1,38 @@
+<div style="float:left"> Grades </div>
+<div style ="float:right"> <%= link_to "New Grade","#", :id=> "new_grade"%> </div>
+<table class="table_border" width="100%">
+<thead> 
+<tr>
+<td> S.No </td>
+<td> Name </td>
+<td> Status </td>
+<td> Actions </td>
+</tr>
+</thead>
+<tbody>
+<% count = 1%>
+<%@grades.each do |grade|%>
+<% c= (count % 2 == 0)	 ? 'even' : 'odd'%>
+<tr width = "100%" class ="<%= c%>">
+<td class='normal_black'><%= count%></td>
+<td class='normal_black'> <%= grade.name%>
+<td class='normal_black'> <%= grade.status? ? 'Active' : 'InActive'%>
+<td class='normal_black'> <%= link_to "Edit", "#", :onclick => "edit_grade(#{grade.id})"%>
+<% count += 1%>
+</tr>
+<% end %>
+</tbody>
+</table>
+<script>
+$('#new_grade').click(function(){
+$('#center_container').load('/academic/grades/new', function(){
+});
+})
+function edit_grade(g)
+{
+$('#center_container').load('/academic/grades/'+parseInt(g)+'/edit', function(){
+});
+}
+
+
+</script>

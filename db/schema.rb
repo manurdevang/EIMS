@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(:version => 20120215171630) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "personel_information_id"
-    t.string   "address_type"
     t.integer  "phone"
     t.string   "street"
     t.string   "place"
@@ -22,14 +21,6 @@ ActiveRecord::Schema.define(:version => 20120215171630) do
     t.text     "country"
     t.text     "narration"
     t.integer  "location_id"
-    t.string   "type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "blood_groups", :force => true do |t|
-    t.string   "name"
-    t.string   "symbol"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,13 +40,37 @@ ActiveRecord::Schema.define(:version => 20120215171630) do
   create_table "countries", :force => true do |t|
     t.string   "name"
     t.boolean  "status"
-    t.string   "nationality"
     t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "default_settings", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "departments", :force => true do |t|
+    t.string   "name"
+    t.integer  "location_id"
+    t.boolean  "status",      :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "designation_types", :force => true do |t|
+    t.string   "name"
+    t.boolean  "status",      :default => true
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "designations", :force => true do |t|
+    t.string   "name"
+    t.boolean  "status",              :default => true
+    t.integer  "designation_type_id"
+    t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -75,6 +90,14 @@ ActiveRecord::Schema.define(:version => 20120215171630) do
     t.integer  "education_institution_group_id"
     t.integer  "created_by"
     t.integer  "approved_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "grades", :force => true do |t|
+    t.string   "name"
+    t.boolean  "status",      :default => true
+    t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -154,6 +177,7 @@ ActiveRecord::Schema.define(:version => 20120215171630) do
   create_table "occupations", :force => true do |t|
     t.string   "name"
     t.string   "status"
+    t.string   "qualification_id"
     t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -172,16 +196,11 @@ ActiveRecord::Schema.define(:version => 20120215171630) do
   end
 
   create_table "personel_informations", :force => true do |t|
-    t.integer  "title_id"
     t.integer  "user_id"
-    t.integer  "gender"
     t.datetime "dob"
     t.integer  "age"
     t.float    "height"
-    t.float    "weight"
     t.string   "blood_group"
-    t.integer  "religion_id"
-    t.string   "nationality_id"
     t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -218,6 +237,14 @@ ActiveRecord::Schema.define(:version => 20120215171630) do
     t.datetime "updated_at"
     t.string   "controller"
     t.string   "action"
+  end
+
+  create_table "sections", :force => true do |t|
+    t.string   "name"
+    t.boolean  "status",      :default => true
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "states", :force => true do |t|

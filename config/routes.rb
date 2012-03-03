@@ -75,6 +75,12 @@ Sms::Application.routes.draw do
 		end	
 	end
   
+  namespace :hr do
+    resources :designations
+    resources :departments
+    resources :designation_types
+  end
+  
 	namespace :master do
 		resources :countries do 
 

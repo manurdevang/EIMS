@@ -1,0 +1,43 @@
+<div style="float:left"> Sections </div>
+<div style="float:right"> <%= link_to "New Section", "#", :id => "new_section"%> </div>
+<table class="table_border" width="100%">
+<thead>
+<tr>
+<td>S.No</td>
+<td> Name </td>
+<td> Status </td>
+<td> Actions </td>
+</tr>
+</thead>
+<tbody>
+<%count = 1%>
+<% @sections.each do |section| %>
+<% c = (count % 2 == 0) ? 'even' : 'odd'%>
+<tr width="100%" class ='<%= c%>'>
+<td class="normal_black"> <%= count %></td>
+<td class ="normal_black"> <%= section.name %> </td>
+<td class ="normal_black"> <%= section.status? ? 'Active' : 'InActive' %></td>
+<td> <%= link_to "Edit", "#", :onclick => "edit_section(#{section.id})" %></td> 
+</tr>
+<%count += 1%>
+<% end%>
+</tbody>
+</table>
+
+<script>
+$('#new_section').click(function(){
+
+$('#center_container').load('/academic/sections/new', function(){
+});
+
+})
+
+function edit_section(sec)
+{
+alert("hi")
+	$('#center_container').load('/academic/sections/'+parseInt(sec)+'/edit', function(){
+});
+}
+
+
+</script>

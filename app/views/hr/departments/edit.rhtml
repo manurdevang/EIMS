@@ -1,0 +1,5 @@
+<div> New Department </div>
+<%= form_for @department, :url =>{:action => :update} do |dep|%>
+<%= render :partial => "form", :locals => {:dep => dep}%>
+<% end%>
+ 

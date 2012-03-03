@@ -1,0 +1,4 @@
+<div> New / </div>
+<%= form_for :department, :url =>{:action => "create"} do |dep|%>
+<%= render :partial => "form", :locals => {:dep => dep}%>
+<% end%>

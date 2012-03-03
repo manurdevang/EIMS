@@ -25,4 +25,16 @@ module ApplicationHelper
 	def relegion_collection
 		return blood_group
 	end
+	
+	def locations_for_select
+	  locals =[]
+	  Location.all.collect {|l| locals << [l.name,l.id]}
+    return locals	  
+	end
+	
+	def status_for_masters
+	  return [["Active", 0],["InActive", 1]]
+	  
+	end
+	
 end

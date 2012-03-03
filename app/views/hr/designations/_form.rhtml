@@ -1,0 +1,19 @@
+
+<table class = "table_border"> 
+<tr><td></td><td></td></tr>
+<tr>
+<td> <%= des.label :name %> </td>
+<td> <%= des.text_field :name%> </td>
+</tr>
+<tr>
+<td> <%= des.label :location %> </td>
+<td> <%= des.select :location_id, locations_for_select%>
+</tr>
+<tr> 
+<td> <%= des.label :status%> </td>
+<td> <%= des.select :status, status_for_masters%>
+</tr>
+<tr>
+ 	<td colspan = "2"> <%= des.submit " Submit "%> </td>
+</tr>
+</table>

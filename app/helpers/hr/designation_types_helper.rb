@@ -1,0 +1,2 @@
+module Hr::DesignationTypesHelper
+end

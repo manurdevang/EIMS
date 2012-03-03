@@ -1,0 +1,6 @@
+<div> Edit Designation </div>
+<%= form_for @designation, :url => {:action => :update} do |des| %>
+<%= render :partial => "form", :locals => {:des => des}%>
+<% end %>
+
+

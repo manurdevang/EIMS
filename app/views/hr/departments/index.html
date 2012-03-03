@@ -1,0 +1,43 @@
+
+
+<table class = 'table_border' width="100%">
+	<thead>
+		<tr>
+			<th>S.No</th>
+			<th> Name</th>
+			<th> Status</th>
+			<th colspan ="2"> <%= link_to "New Department", "#", :id =>"new_department"%></th>
+			
+		</tr>
+	</thead>
+	<tbody>
+		<% count = 1%>
+		<% @departments.each do |department| %>
+		<% c = 'odd'%>
+		<% c= 'even' if count % 2 == 0 %>
+		<tr width= "100%" class = "<%= c%>" >
+			<td class='normal_black'> <%= count %></td>
+			<td class='normal_black'> <%= department.name %></td>
+			<td class='normal_black'> <%= department.status? ? "Active" : "InActive" %></td>
+			<td><%= link_to "Edit", "#", :id => "edit_department", :onclick => "edit_department(#{department.id})"%></td>
+		</tr>
+		<% count +=1 %><% end %>		
+</tbody>		
+	</thead>
+</table>
+
+<script>
+	$('#new_department').click(function(){
+		$("#center_container").load('/hr/departments/new', function() {
+			});
+	})
+	
+	
+	function edit_department(id)
+	{
+		$('#center_container').load('/hr/departments/'+parseInt(id)+'/edit', function(){
+			
+		})
+	}
+	
+</script>

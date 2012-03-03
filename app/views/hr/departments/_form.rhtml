@@ -1,0 +1,24 @@
+
+<table class = "table_border"> 
+<tr><td></td><td></td></tr>
+<tr>
+
+<td><%= dep.label :name%> </td>
+<td> <%= dep.text_field :name%> </td>
+</tr>
+<tr>
+<td> <%= dep.label :location %> </td>
+<td> <%= dep.select :location_id, locations_for_select%>
+</tr>
+<tr>
+<td> <%= dep.label :status%> </td>
+<td> <%= dep.select :status, status_for_masters%>
+
+</tr>
+
+<tr>
+ 	<td colspan = "2"> <%= dep.submit " Submit "%> </td>
+</tr>
+</table>
+
+

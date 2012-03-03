@@ -1,0 +1,4 @@
+<div> Edit Section </div>
+<%= form_for @section, :url => {:action => :update} do |section|%>
+<%= render :partial => "form", :locals => {:section => section}%>
+<% end %>

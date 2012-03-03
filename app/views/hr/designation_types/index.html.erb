@@ -1,0 +1,44 @@
+<div style="float:left"> Designation Types </div>
+<div style="float:right"> <%= link_to "New Designation Type","#", :id => "new_designation_type" %></div>
+<table class="table_border" width ="100%"> 
+<thead> 
+<tr>
+<td> S.No </td>
+<td> Name </td>
+<td> Status </td>
+<td> Actions </td>
+
+</tr>
+</thead>
+<tbody> 
+<%count = 1%>
+<% @designation_types.each do |designation_type|%>
+<% c = count % 2 == 0 ? "even" : "odd"%>
+<tr class ='<%= c%>' width = "100%">
+	<td class="normal_black"> <%= count%> </td>
+	<td class="normal_black"> <%= designation_type.name%> </td>
+	<td class="normal_black"> <%= designation_type.status?  ? "Active" : "InActive"%> </td>
+	<td> <%= link_to "Edit","#", :onclick => "edit_designation_type(#{designation_type.id})" %>
+	| <%= link_to "Show", "/hr/designation_types/#{designation_type.id}"%>
+</td>
+</tr>
+<% count += 1%>
+<%end%>
+</tbody>
+</table>
+
+
+<script>
+$('#new_designation_type').click(function(){
+//alert("hi")
+$('#center_container').load('/hr/designation_types/new', function(){
+});
+
+})
+
+function edit_designation_type(dt){
+$('#center_container').load('/hr/designation_types/'+parseInt(dt)+'/edit', function(){
+});
+}
+
+</script>

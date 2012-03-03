@@ -1,0 +1,4 @@
+<div> New Designation </div>
+<%= form_for :designation, :url => {:action => "create"} do |des|%>
+<%= render :partial => "form", :locals => {:des => des}%>
+<% end %>
