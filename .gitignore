@@ -1,1 +1,4 @@
-app/controllers/menu/mappings_controller.rb
+config/database.yml
+log/*.log
+tmp/*
+tmp/**/*

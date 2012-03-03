@@ -71,6 +71,8 @@ Sms::Application.routes.draw do
 			collection do
 				get 'student_registration'
 				post 'save_student_registration'
+				get 'load_states'
+				get 'madhu'
 			end
 		end	
 	end
@@ -116,6 +118,7 @@ Sms::Application.routes.draw do
 			get 'adminpage'
 			get 'set_logged_role'
 			get 'userpage'
+			get 'load_states'
         # post 'toggle'
    end
   

@@ -6,7 +6,7 @@
 	</tr>
 	<tr>
 		<td>
-<%= form_tag(:path => save_student_registration_student_students_path, :multipart => true) do %>
+<%= form_tag(:action => 'save_student_registration') do %>
 	<fieldset>
 		<legend>Student Registration </legend>
 	<%= fields_for :user do |u| %>
@@ -21,22 +21,22 @@
 
 					</tr>
 					<tr>
-						<td><%= pi.label :Gender %></td><td><%= pi.select :sex, [['male',1],['famale',2]] %></td>
-							<td><%= u.label :email %></td><td><%= u.text_field :email, :size => 10, :class => 'textbox' %></td>
-							<td><%= pi.label :Blood_Group %></td><td><%= pi.select :blood_group,blood_group_collection %></td>				
-							<td><%= pi.label :Blood_Group %></td><td><%= pi.select :blood_group,blood_group_collection %></td>
-							<td><%= pi.label :Blood_Group %></td><td><%= pi.select :blood_group,blood_group_collection %></td>
+						<td><%= pi.label :Gender %></td><td><%= pi.select :gender, [['male',1],['famale',2]] %></td>
+						<td><%= u.label :email %></td><td><%= u.text_field :email, :size => 10, :class => 'textbox' %></td>
+						<td><%= pi.label :Blood_Group %></td><td><%= pi.select :blood_group,blood_group_collection %></td>				
+						<td><%= pi.label :Blood_Group %></td><td><%= pi.select :blood_group,blood_group_collection %></td>
+						<td><%= pi.label :Blood_Group %></td><td><%= pi.select :blood_group,blood_group_collection %></td>
 					</tr>
 				</table>
 			<% end %>
 			</fieldset>
 			<fieldset><legend>Parent/Gaurdian Detail</legend>
 			<div id="tabs1">
-			<ul>
-				<li><a href="#tabs-4">Father Detail</a></li>
-				<li><a href="#tabs-5">Mother Detail</a></li>
-				<li><a href="#tabs-6">Gaurdian Detail</a></li>
-			</ul>
+				<ul>
+					<li><a href="#tabs-4">Father Detail</a></li>
+					<li><a href="#tabs-5">Mother Detail</a></li>
+					<li><a href="#tabs-6">Gaurdian Detail</a></li>
+				</ul>
 				<div id="tabs-4">
 					<table>
 						<tr><td>
@@ -64,37 +64,29 @@
 
 			<fieldset>
 				<legend>Address Detail </legend>
-	<%= fields_for :address do |add| %>
+
 			<div id="tabs">
 			<ul>
 				<li><a href="#tabs-1">Temporary</a></li>
 				<li><a href="#tabs-2">Permanent</a></li>
-				<li><a href="#tabs-3">Gaurdian</a></li>
 			</ul>
 				<div id="tabs-1">
 					<table>
 						<tr><td>
-						<%= render :partial => 'address_detail', :locals => { :address_type => 'temporary'} %>temporary				
+						<%= render :partial => 'address_detail', :locals => { :object => 'temporary', :variable => @temp_address } %>				
 						</td></tr>
 					</table>
 				</div>
 			<div id="tabs-2">
 					<table>
 						<tr><td>
-						<%= render :partial => 'address_detail', :locals => { :address_type => 'permanent'} %>permanent address				
+						<%= render :partial => 'address_detail', :locals => { :object => 'permanent', :variable => @permanent_address } %>				
 						</td></tr>
 					</table>
 			</div>
-			<div id="tabs-3">
-				<table>
-						<tr><td>
-						<%= render :partial => 'address_detail', :locals => { :address_type => 'gardian'} %>gaurdian Address				
-						</td></tr>
-					</table>
-			</div>
+			
 			</div>
 			</fieldset>
-		<% end %>
 	<% end %>
 	<%= submit_tag('Submit') %>
 </fieldset>

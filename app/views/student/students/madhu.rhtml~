@@ -1,0 +1,162 @@
+<input type=checkbox id="is_tapering" onclick="return add_tapering_data();"><span style="color:green;font-weight:bold;">Taper</span>
+
+    <table id="dosage_tapers_container" style="display:none;" border="0" width="60%">
+        <tr>
+            <th>
+                <span style="color:green;font-weight:bold;">Dosage</span>
+            </th>
+            <th>
+                <span style="color:green;font-weight:bold;">Frequencies</span>
+            </th>
+   <th>
+                <span style="color:green;font-weight:bold;">Medication Start Date</span>
+            </th>
+            <th>
+                <span style="color:green;font-weight:bold;">Duration</span>
+            </th>
+  
+   <th>
+                <span style="color:green;font-weight:bold;">Medication End Date</span>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <div id="tapering_div">
+                </div>
+            </td>
+            <td>
+                <div id="tapering_div2">
+                </div>
+            </td>
+   <td>
+                <div id="medication_startdate">
+                </div>
+            </td>
+            <td>
+                <div id="tapering_duration_div">
+                </div>
+            </td>
+            <td>
+                <div id="tapering_dur_unit_div">
+                </div>
+            </td>
+            <td>
+                <div id="medication_enddate">
+                </div>
+            </td>
+    <td>
+                <div id="hidden_medication_enddate">
+                </div>
+            </td>
+        </tr>
+    </table>
+
+<script>
+    function add_tapering_data()
+{
+    var element=[];
+    var element2=[];
+    var element3=[];
+var element4=[];
+var element5=[];  
+
+    if (document.getElementById('is_tapering').checked)
+{
+
+     //$('dosage_tapers_container').show();
+     //$('dose_container').hide();  
+     for (i = 0; i < 4; i++) {
+alert('hi');
+      element[i]=document.createElement("input");
+      element[i].setAttribute("type", 'text');
+      element[i].setAttribute("id", 'element'+i);
+      
+      var tapering_div = document.getElementById("tapering_div"); 
+      tapering_div.appendChild(element[i]);
+       
+      var d=document;
+      var sevInput = d.createElement("SELECT");
+      sevInput.id = "dosage_frequency"+i;  
+/*
+      <%# @site.get_lov_for('medication_frequencies').each do |frequency| %>
+    var fre = '<%#= frequency[0] %>';
+    var fre_id = '<%#= frequency[1] %>';
+    sevoption = d.createElement("OPTION");
+            sevoption.value = fre;
+            sevoption.innerHTML = fre ;
+            sevInput.appendChild(sevoption);
+    <%# end %>
+    */
+     d.getElementById('tapering_div2').appendChild(sevInput);
+   
+                                element4[i]=document.createElement("input");
+    element4[i].setAttribute("type", 'text');
+    element4[i].setAttribute("id", 'element4'+i);
+//element4[i].setAttribute("value",$('start_date').value);
+      
+    var medication_start_dates_div = document.getElementById("medication_startdate"); 
+           medication_start_dates_div.appendChild(element4[i]);                                  
+                                     
+      element2[i]=document.createElement("input");
+      element2[i].setAttribute("type", 'text');
+      element2[i].setAttribute("id", 'element2'+i);   
+        
+      var tapering_duration_div = document.getElementById("tapering_duration_div");  
+      tapering_duration_div.appendChild(element2[i]);
+     
+     var doc=document;
+     var dur_unit_Input = doc.createElement("SELECT");
+     dur_unit_Input.id = "dosage_duration_unit"+i;  
+       dur_unit_Input.setAttribute('onchange', 'cal_medication_end_date(this)');   
+/*
+      <%# @site.get_lov_for('medication_duration_units').each do |dur| %>
+    var duration = '<%#= dur[0] %>';
+    var dur_id = '<%#= dur[1] %>';
+    dur_unit_option = doc.createElement("OPTION");
+            dur_unit_option.value = duration;
+            dur_unit_option.innerHTML = duration ;
+            dur_unit_Input.appendChild(dur_unit_option);
+    <%# end %>  
+*/
+         
+     doc.getElementById('tapering_dur_unit_div').appendChild(dur_unit_Input);
+
+element3[i]=document.createElement("input");
+    element3[i].setAttribute("type", 'text');
+    element3[i].setAttribute("id", 'element3'+i);
+      
+    var medication_end_dates_div = document.getElementById("medication_enddate"); 
+           medication_end_dates_div.appendChild(element3[i]);      
+
+element5[i]=document.createElement("input");
+    element5[i].setAttribute("type", 'hidden');
+    element5[i].setAttribute("id", 'element5'+i);
+var hidden_medication_end_dates_div = document.getElementById("hidden_medication_enddate"); 
+           hidden_medication_end_dates_div.appendChild(element5[i]);
+ 
+     }
+    }
+            else{
+    $('dosage_tapers_container').hide();
+    $('dose_container').show();
+    var tapering_div2 = document.getElementById("tapering_div2"); 
+    var tapering_div = document.getElementById("tapering_div");
+    var tapering_duration_div = document.getElementById("tapering_duration_div");
+    var tapering_dur_unit_div = document.getElementById("tapering_dur_unit_div");
+
+var medication_end_dates_div = document.getElementById("medication_enddate"); 
+var medication_start_dates_div = document.getElementById("medication_startdate");
+   
+    for (i = 1; i <= 4; i++) {
+    //tapering_div.removeChild(tapering_div.lastChild);
+    //tapering_div2.removeChild(tapering_div2.lastChild);
+    //tapering_duration_div.removeChild(tapering_duration_div.lastChild);
+   // tapering_dur_unit_div.removeChild(tapering_dur_unit_div.lastChild);
+
+//medication_end_dates_div.removeChild(medication_end_dates_div.lastChild);
+//medication_start_dates_div.removeChild(medication_start_dates_div.lastChild);
+    }
+    }
+     }
+</script>
+                    

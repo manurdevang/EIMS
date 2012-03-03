@@ -22,6 +22,14 @@ module ApplicationHelper
 		return countries
 	end
 
+	def state_collection_by_country(country)
+		@states = []
+		country_id = country 
+		country_id = 1 if country.nil?
+		State.find_all_by_country_id(country_id).collect {|a| @states << [a.name,a.id]}
+		return @states
+	end
+
 	def relegion_collection
 		return blood_group
 	end
