@@ -39,10 +39,30 @@ class User < ActiveRecord::Base
 	end
 
 	def permanent_address
-		self.personel_information.personel_information.find_by_parent_type("Father")
+		if self.is_student?
+		@permanent_address =	self.personel_information.addess.find_by_address_type("permanent")
+		end
+		return @permanent_address
 	end
 
 	def temporary_address
-		self.personel_information.personel_information.find_by_parent_type("Father")
+		if self.is_student?
+		@temporary_address = self.personel_information.address.find_by_address_type("temporary")
+		end
+	return @temporary_address
+	end
+
+	def father_detail
+		if self.is_student?
+		@father = self.personel_information.parent_detail.find_by_address_type("father")
+		end
+	return@father
+	end
+
+	def mother_detail
+		if self.is_student?
+		@mother = self.personel_information.parent_detail.find_by_address_type("mother")
+		end
+		return @mother
 	end
 end

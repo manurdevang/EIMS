@@ -18,11 +18,7 @@ helper :all
 	end
 
 	def set_role_session(role_id)
-		puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-puts role_id.inspect
 		session[:role] = role_id
-		
-		puts session[:role]
 	end
 
 	#def is_admin

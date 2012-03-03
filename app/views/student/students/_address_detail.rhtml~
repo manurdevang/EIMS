@@ -1,1 +1,18 @@
-address detail partial
+<%= fields_for object,variable do |add| %>
+<table width="100%">
+	<tr>
+		<td><%= add.label :Phone %></td><td><%= add.text_field :phone %></td>		<td><%= add.label :street %></td><td><%= add.text_field :street %></td>		<td><%= add.label :place %></td><td><%= add.text_field :place %></td>	
+	</tr>
+	<tr>
+	<td><%= add.label :country %></td><td><%= add.select :country, country_collection %></td>	<td><%= add.label :state %></td><td><div id = 'statess'><%= add.select :state, state_collection_by_country(nil) %></div></td>
+	</tr>
+</table>
+<% end %>
+
+<script>
+	$("#<%=object%>_country").change(function(){
+alert(this.value);
+		$("#<%=object%>_statess").load('home/load_states?country_id='+this.value, function() {
+			});
+		});
+</script>
