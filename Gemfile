@@ -5,7 +5,6 @@ gem 'mysql2', '< 0.3'
 #gem 'mysql2'
 gem 'devise'
 gem 'jquery-rails', '>= 1.0.12'
-gem 'rspec'
 
 
 # Bundle edge Rails instead:

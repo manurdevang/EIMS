@@ -2,21 +2,11 @@
 #   gem install sqlite3
 development:
   adapter: mysql2
-  encoding: utf8
-  database: smsdb
-  #database: eims
+  #database: smsdb
+  database: eims
   username: root
-  password: oboulo912
-  #pool: 5
-  #timeout: 5000
-
-
-#oboulo_en:
-#  adapter: mysql2
-#  encoding: utf8
-#  database: oboulo_en
-#  username: root
-#  password: oboulo912
+  pool: 5
+  timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -25,7 +15,6 @@ test:
   adapter: mysql2
   database: smsdb
   username: root
-  password: oboulo912
   pool: 5
   timeout: 5000
 
@@ -33,6 +22,5 @@ production:
   adapter: mysql2
   database: smsdb
   username: root
-  password: oboulo912
   pool: 5
   timeout: 5000

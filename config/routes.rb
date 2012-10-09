@@ -21,7 +21,7 @@ Sms::Application.routes.draw do
 		resources :roles do 
 		end
 		
-		resources :address
+		resources :address, :country
 	end
 	
 
@@ -70,31 +70,10 @@ Sms::Application.routes.draw do
 		resources :students do
 			collection do
 				get 'student_registration'
-				post 'save_student_registration'
-				get 'load_states'
-				get 'madhu'
 			end
 		end	
 	end
   
-  namespace :hr do
-    resources :designations
-    resources :departments
-    resources :designation_types
-  end
-  
-	namespace :master do
-		resources :countries do 
-
-		end
-		resources :states do
-
-		end
-		resources :religion do 
-	
-		end
-	end
-	
   namespace "hostel" do
 		#resources :modules, :links, :groups, :container, :menu_groups_menu_links
 	end
@@ -118,7 +97,6 @@ Sms::Application.routes.draw do
 			get 'adminpage'
 			get 'set_logged_role'
 			get 'userpage'
-			get 'load_states'
         # post 'toggle'
    end
   

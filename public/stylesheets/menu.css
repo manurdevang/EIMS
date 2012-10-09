@@ -1,6 +1,6 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
-/*  font-size: 0.9em; */
+  font-size: 0.9em;
 }
 
 p {
@@ -13,7 +13,7 @@ ul.menu, ul.menu ul {
   padding: 0;
   /*width: 15em;*/
   font-family: Helvetica, Arial, sans-serif;
- /*  font-size: 0.9em; */
+  font-size: 0.9em;
 }
 
 ul.menu a {
@@ -57,7 +57,7 @@ ul.menu a.active, ul.menu ul.menu li a.active, ul.menu a.active:hover, ul.menu u
     text-decoration: underline;
     background: #c00;
 	font-family: Helvetica, Arial, sans-serif;
-   /* font-size: 0.9em; */
+    font-size: 0.9em;
 }
 div.panel {
     border: 1px #000 solid;

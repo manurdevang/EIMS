@@ -3,7 +3,6 @@ class CreateCountries < ActiveRecord::Migration
     create_table :countries do |t|
 			t.string :name
 			t.boolean :status
-			t.string :nationality
 			t.integer :location_id
       t.timestamps
     end

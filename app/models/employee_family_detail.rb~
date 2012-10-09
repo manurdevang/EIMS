@@ -1,0 +1,2 @@
+class EmployeeFamilyDetail < ActiveRecord::Base
+end

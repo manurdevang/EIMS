@@ -1,0 +1,16 @@
+class CreateEmployeeFamilyDetails < ActiveRecord::Migration
+  def self.up
+    create_table :employee_family_details do |t|
+      t.integer :employee_id
+      t.string  :name
+      t.integer :relationship_id
+      t.datetime:date_of_birth
+      t.integer :age
+      t.timestamps
+    end
+  end
+
+  def self.down
+    drop_table :employee_family_details
+  end
+end
