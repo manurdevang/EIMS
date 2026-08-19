@@ -21,6 +21,7 @@ jobs:
 
       - name: Say Hello
         run: echo "Hello, Rails Workflow!"
+        
     # Services are required if your Rails app relies on a database like PostgreSQL or MySQL
     # services:
     #   postgres:
